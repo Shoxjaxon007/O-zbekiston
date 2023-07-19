@@ -1,0 +1,35 @@
+function borderRadius(tagClass, value){
+	$(tagClass).css('border-radius', value);
+};
+
+function textShadow(tagClass, value) {
+    $(tagClass).css('text-shadow', value);
+};
+
+function textShadowOver(tagClass, value1, value2) {
+    $(tagClass).hover(function () {
+        $(this).css('text-shadow', value1);
+    }, function () {
+        $(this).css('text-shadow', value2);
+    });
+};
+
+function boxShadow(tagClass, value){
+	$(tagClass).css('box-shadow', value);
+};
+
+function boxShadowOver(tagClass, value1, value2) {
+    $(tagClass).hover(function () {
+        $(this).css('box-shadow', value1);
+    }, function () {
+        $(this).css('box-shadow', value2);
+    });
+};
+
+function lastChild(tagClass, value) {
+    $(tagClass+':last-child').css(value);
+};
+
+function firstChild(tagClass, value) {
+    $(tagClass + ':first-child').css(value);
+};

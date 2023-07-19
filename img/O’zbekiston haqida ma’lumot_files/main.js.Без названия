@@ -1,0 +1,68 @@
+$(function () {
+    var config = {
+        sensitivity: 7, // number = sensitivity threshold (must be 1 or higher)
+        interval: 0,   // number = milliseconds of polling interval
+        over: doOpen,  // function = onMouseOver callback (required)
+        timeout: 250,   // number = milliseconds delay before onMouseOut function call
+        out: doClose    // function = onMouseOut callback (required)
+    };
+    $('ul.dropdownh li:has(ul), ul.dropdownv li:has(ul)').find('ul').hide();
+    $('ul.dropdownh li:has(ul), ul.dropdownv li:has(ul)').addClass('havesub');
+    $('ul.dropdownh li:last-child, ul.dropdownv li:last-child').find('a').addClass('lastChild');
+
+    function doOpen() {
+
+        $(this).addClass("hover");
+
+        var ul = $(this).children('ul');
+        var z = ul.width();
+        var currentPosition = $(this).offset();
+        var currentWidth = $(this).width();
+        var ulRightPosition = currentPosition.left + z;
+        if ($(ul).parents('li').css("float") == 'none') {
+            var ulLeftPosition = currentPosition.left + -z;
+        }
+        else {
+            var ulLeftPosition = currentPosition.left + currentWidth - z;
+        }
+
+        var m = $(window).width() - z;
+        if ($(ul).css("direction") == 'ltr') {
+            if ($(ul).parents('li').css("float") == 'left') {
+                $(ul).css({ 'left': 0, 'right': 'auto' });
+                if (ulRightPosition >= m) {
+                    $(ul).css({ 'left': 'auto', 'right': 0 });
+                }
+            }
+            else {
+                $(ul).css({ 'left': '100%', 'right': 'auto' });
+                if (ulRightPosition >= m) {
+                    $(ul).css({ 'left': -z, 'right': 0 });
+                }
+            }
+        }
+        else {
+            if ($(ul).parents('li').css("float") == 'right') {
+                $(ul).css({ 'left': 'auto', 'right': 0 });
+                if (ulLeftPosition <= 0) {
+                    $(ul).css({ 'left': 0, 'right': 'auto' });
+                }
+            }
+            else {
+                $(ul).css({ 'left': 'auto', 'right': '100%' });
+                if (ulLeftPosition <= 0) {
+                    $(ul).css({ 'left': 0, 'right': -z });
+                }
+            }
+        }
+        $(ul).slideDown(100);
+    }
+
+    function doClose() {
+        $(this).removeClass("hover");
+        $('ul:first', this).hide();
+    }
+
+    $("ul.dropdownh li, ul.dropdownv li").hoverIntent(config);
+
+});

@@ -1,0 +1,22 @@
+$(document).ready(function(){
+        $(".header-up ul li a img").hover(function(){
+
+        // Get the current title
+        var title = $(this).attr("title");
+
+        // Store it in a temporary attribute
+        $(this).attr("tmp_title", title);
+
+        // Set the title to nothing so we don't see the tooltips
+        $(this).attr("title","");
+        },
+
+        function() { // Fired when we leave the element
+
+        // Retrieve the title from the temporary attribute
+        var title = $(this).attr("tmp_title");
+
+        // Return the title to what it was
+        $(this).attr("title", title);
+        });
+});

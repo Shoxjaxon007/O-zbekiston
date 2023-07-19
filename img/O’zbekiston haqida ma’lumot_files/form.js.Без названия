@@ -1,0 +1,939 @@
+﻿//*0
+function VisibilityOfAltFields(UserControlID) {
+    var elms = document.body.getElementsByTagName("input")
+    var strPreviousID = "";
+    var intFilledCount = 1;
+
+    for (var i = 1; i < elms.length; i++) {
+        var elm = elms[i];
+
+        if (strPreviousID == "") {
+            strPreviousID = elms[i - 1];
+        }
+        if (elm.id.indexOf(strPreviousID) > -1) {
+            var strDigit = elm.id.replace(strPreviousID, "");
+            var intDigitLength = parseInt(strDigit.length);
+            var strPureNameWithNum = elm.id.replace(UserControlID, "").replace(/txt/i, "");
+            var strPureName = strPureNameWithNum.substr(0, strPureNameWithNum.length - intDigitLength);
+            var trElm = document.getElementById("tr" + strPureNameWithNum);
+            var trAddElm = document.getElementById("trAdd" + strPureName);
+            var spnDigit = document.getElementById("spnDigit" + strPureName);
+
+            if (elm.value == "") {
+                trElm.style.display = "none";
+                trAddElm.style.display = "";
+
+                strPreviousID = elm.id.substr(0, elm.id.length - intDigitLength);
+            }
+            else {
+                intFilledCount++;
+            }
+
+            spnDigit.innerHTML = String(intFilledCount + 1);
+
+        }
+        else {
+            strPreviousID = elm.id;
+            intFilledCount = 1;
+        }
+    }
+}
+
+//*0
+function AddDynamicField(hypAdd) {
+    var strPureName = hypAdd.id.replace("hypAdd", "");
+    var elmDigit = document.getElementById("spnDigit" + strPureName);
+    var strDigit = elmDigit.innerHTML;
+    var trCurrentTel = document.getElementById("tr" + strPureName + strDigit);
+    elmDigit.innerHTML = parseInt(strDigit) + 1;
+    var trAdd = document.getElementById("trAdd" + strPureName);
+
+    var elms = document.body.getElementsByTagName("input");
+    var intCurrentElmCount = 0;
+    for (var i = 0; i < elms.length; i++) {
+        var elm = elms[i];
+        if (elm.id.indexOf("txt" + strPureName) > -1) {
+            intCurrentElmCount++;
+        }
+    }
+
+    if (parseInt(strDigit) > intCurrentElmCount - 1) {
+        trAdd.style.display = "none";
+    }
+    trCurrentTel.style.display = "";
+}
+
+//*1
+function openPopUp(url, w, h) {
+    window.open(url, '_blank', 'width=' + w + ',height=' + h + ',scrollbars=yes')
+}
+
+//*0
+function GridRadioButton_DeleteConfirm(sDataGridID, sSelectOneItem, sConfirmToDelete) {
+
+    if (!IsGridRadioChecked(sDataGridID)) {
+        alert(sSelectOneItem);
+        return false;
+    }
+
+    return confirm(sConfirmToDelete);
+
+}
+
+//*0
+function IsGridRadioChecked(sDataGridID) {
+
+    var controlIndex;
+    var element;
+    var numberOfControls = document.all.length;
+    for (controlIndex = 0; controlIndex < numberOfControls; controlIndex++) {
+        element = document.all[controlIndex];
+        try {
+            if (element.tagName == "INPUT" && element.type == "radio" && element.id.indexOf(sDataGridID) > -1) {
+                if (element.checked)
+                    return true;
+            }
+        } catch (e) { }
+    }
+    return false;
+}
+
+//*0
+function checkGrid(sGridID, sSelectMsg) {
+    if (!IsGridChecked(sGridID)) {
+        alert(sSelectMsg);
+        return false;
+    }
+}
+
+function setCheckoutButtonText(sUclID) {
+    var btnSubmit = document.getElementById(sUclID + "_btnSubmit");
+    var inputs = document.getElementsByTagName('input');
+    var radios = [];
+    for (var i = 0; i < inputs.length; i++) {
+        var element = inputs[i];
+        if (element.type == 'radio' && element.id.indexOf("rblPaymentMethods") > -1) {
+            if (element.value == "Credit" && element.checked) {
+                btnSubmit.value = sFinish;
+            }
+            else if (element.value != "Credit" && element.checked) {
+                btnSubmit.value = sSpecifyingCardInfoAndFinish;
+            }
+        }
+    }
+}
+
+function Grid_ActionConfirm(sGridID, sSelectMsg, sConfirmMsg) {
+    if (!IsGridChecked(sGridID)) {
+        alert(sSelectMsg);
+        return false;
+    }
+    return confirm(sConfirmMsg);
+}
+
+function IsGridChecked(sGridID) {
+    var controlIndex;
+    var element;
+    var numberOfControls = document.forms[0].elements.length;
+
+    for (controlIndex = 0; controlIndex < numberOfControls; controlIndex++) {
+        element = document.forms[0].elements[controlIndex];
+        try {
+            if (element.tagName == "INPUT" && (element.type == "radio" || element.type == "checkbox") && element.id.indexOf(sGridID) > -1) {
+                if (element.checked)
+                    return true;
+            }
+        } catch (e) { }
+    }
+    return false;
+}
+
+function CurrencySeparatorByDropDown(txt, ddlCurrencyID) {
+    var sCurrency;
+    var ddlCurrency = document.getElementById(ddlCurrencyID);
+    for (var i = ddlCurrency.length - 1; i >= 0; i--) {
+        if (ddlCurrency.options[i].selected) {
+            sCurrency = ddlCurrency.options[i].value;
+        }
+    }
+    CurrencySeparator(txt, sCurrency);
+}
+
+//*1
+function CurrencySeparator(txt, sCurrency) {
+
+    if (sCurrency == "IRR") {
+        var iDistance = 3;
+        var strChar = ",";
+        var strValue = txt.value;
+
+        if (strValue.charAt(0) == "0") {
+            strValue = strValue.substring(1)
+        }
+
+        var str = "";
+        for (var i = 0; i < strValue.length; i++) {
+            if (strValue.charAt(i) != strChar) {
+                if ((strValue.charAt(i) >= 0) && (strValue.charAt(i) <= 9)) {
+                    str = str + strValue.charAt(i);
+                }
+            }
+        }
+
+        strValue = str;
+        var iPos = strValue.length;
+        iPos -= iDistance;
+        while (iPos > 0) {
+            strValue = strValue.substr(0, iPos) + strChar + strValue.substr(iPos);
+            iPos -= iDistance;
+        }
+
+        txt.value = strValue;
+    }
+
+}
+
+function VisibilityOfElement(sElementID, IsVisible) {
+    var elm = document.getElementById(sElementID);
+    if (elm != null) {
+        if (IsVisible) {
+            elm.style.visibility = "visible";
+            elm.style.display = "";
+        }
+        else {
+            elm.style.visibility = "hidden";
+            elm.style.display = "none";
+        }
+    }
+}
+
+//*1
+function ElementDisable(elm, Disable) {
+    if (Disable) {
+        elm.className = elm.className + ' elm_disabled'
+        elm.disabled = true;
+    }
+    else {
+        elm.className = elm.className.replace(' elm_disabled', '');
+        elm.disabled = false;
+    }
+}
+
+function setInnerHTML(sElementID, sInnerHTML) {
+    var elm = document.getElementById(sElementID);
+    if (elm != null) {
+        elm.innerHTML = sInnerHTML;
+    }
+}
+
+function setInnerText(sElementID, sInnerText) {
+    var elm = document.getElementById(sElementID);
+    if (elm != null) {
+        elm.innerText = sInnerText; //-- doesn't work in Firefox.
+        elm.textContent = sInnerText //-- Firefox only. 
+    }
+}
+
+//*1
+function setMaxLengthForTextBoxMulti(txt, iMaxLength) {
+    var iLength = txt.value.length
+
+    if (iLength > iMaxLength) {
+        txt.value = txt.value.substring(0, iMaxLength);
+    }
+}
+
+//*0
+function copy_to_clipboard(text) {
+    if (window.clipboardData) {
+        window.clipboardData.setData('text', text);
+    }
+    else {
+        var clipboarddiv = document.getElementById('divclipboardswf');
+        if (clipboarddiv == null) {
+            clipboarddiv = document.createElement('div');
+            clipboarddiv.setAttribute("name", "divclipboardswf");
+            clipboarddiv.setAttribute("id", "divclipboardswf");
+            document.body.appendChild(clipboarddiv);
+        }
+        clipboarddiv.innerHTML = '<embed src="clipboard.swf" FlashVars="clipboard=' +
+        encodeURIComponent(text) + '" width="0" height="0" type="application/x-shockwave-flash"></embed>';
+    }
+    return false;
+}
+
+//*0
+function resetHtmlInput(IDs) {
+    if (IDs.indexOf(",") > -1) {
+        var arrIDs = IDs.split(",");
+        for (var i = 0; i < arrIDs.length; i++) {
+            var elm = document.getElementById(arrIDs[i]);
+            if (elm != null) {
+                elm.innerHTML = ''
+            }
+        }
+    }
+    else {
+        var elm = document.getElementById(IDs);
+        if (elm != null) {
+            elm.innerHTML = ''
+        }
+    }
+}
+
+function isNumberKey(evt) {
+    var charCode = (evt.which) ? evt.which : event.keyCode
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+
+    return true;
+}
+
+function KeyCheck(e) {
+    var keynum
+    var keychar
+    var numcheck
+
+    if (window.event) // IE
+    {
+        keynum = e.keyCode
+    }
+    else if (e.which) // Netscape/Firefox/Opera
+    {
+        keynum = e.which
+    }
+
+    if (keynum == 13)
+    { return false; }
+
+}
+
+//-- Base64:
+/*var END_OF_INPUT = -1;
+var base64Chars = new Array(
+'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
+'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
+'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
+'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f',
+'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
+'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
+'w', 'x', 'y', 'z', '0', '1', '2', '3',
+'4', '5', '6', '7', '8', '9', '+', '/'
+);
+
+var reverseBase64Chars = new Array();
+for (var i = 0; i < base64Chars.length; i++) {
+reverseBase64Chars[base64Chars[i]] = i;
+}*/
+
+//*0
+function getControlValue(parentID) {
+    var result = '';
+    var selectedItem = 'SelectedItem<';
+    var selecteRadioButton = '';
+    var cblCollection = '';
+    var currentListID = '';
+
+    $("#" + parentID + "  input:text").each(function () {
+        result += getPureLabel($(this).attr('id')) + '<' + $(this).val() + '>';
+    });
+
+    $("#" + parentID + "  textarea").each(function () {
+        result += getPureLabel($(this).attr('id')) + '<' + $(this).html() + '>';
+      });
+
+      $("#" + parentID + "  input:checkbox").each(function () {
+          var item = '';
+
+          if ($(this).attr('id').indexOf('_rpt') == -1) {
+
+
+              var currentID = $(this).attr('id').split('_');
+              if (currentID.length > 2)
+              { cblCollection = currentID[currentID.length - 2] }
+              else
+              { cblCollection = getPureLabel($(this).attr('id')); }
+
+              if (currentID[currentID.length - 1].match('^(0|[1-9][0-9]*)$')) {
+
+
+                  if (currentListID != cblCollection) {
+                      currentListID = cblCollection;
+                      result += cblCollection.substring(3) + '<';
+
+                      if ($(this).is(':checked')) {
+                          result += $(this).val() + '>';
+
+                      }
+                  }
+                  else {
+                      if ($(this).is(':checked')) {
+                          if (result.charAt(result.length - 1) != '<') {
+                              result = result.substring(0, result.length - 1) + ','
+                          }
+                          result += $(this).val() + '>';
+
+
+                      }
+                  }
+
+              }
+              else {
+                  //if ($(this).attr('checked')) { item = '1'; } else { item = '0'; }
+                  if ($(this).is(':checked')) { item = '1'; } else { item = '0'; }
+                  result += getPureLabel($(this).attr('id')) + '<' + item + '>';
+
+              }
+
+          }
+          if ($(this).attr('id').indexOf('_rpt') != -1 && $(this).prop('checked')) {
+              var len = $(this).attr('id').lastIndexOf('_') - 10;
+              var lastlen = $(this).attr('id').lastIndexOf('_')
+              var index = $(this).attr('id').substring(lastlen);
+              var item = $(this).attr('id').substring(0, len) + '_hidID' + index;
+              selectedItem += $('#' + item).val() + ',';
+          
+            
+          }
+
+      });
+
+    $("#" + parentID + "  input:radio").each(function () {
+        var item = '';
+        var splitID = $(this).attr('id').split('_');
+        if (splitID.length == 3) {
+
+            //if ($(this).attr('checked')) {
+            if ($(this).is(':checked')) {
+                item = '1';
+            }
+            else
+            { item = '0'; }
+            result += getPureLabel($(this).attr('id')) + '<' + item + '>';
+        }
+        else {
+            //if ($(this).attr('checked')) {
+            if ($(this).is(':checked')) {
+                result += splitID[2].substring(3) + '<' + $(this).val() + '>';
+            }
+        }
+    });
+
+    $("#" + parentID + "  select").each(function () {
+        result += getPureLabel($(this).attr('id')) + '<' + $(this).val() + '>';
+    });
+    if ($('input:hidden:last')) {
+        if (selectedItem.length > 13) {
+            selectedItem = selectedItem.substring(0, selectedItem.length - 1);
+            selectedItem += '>';
+            result += selectedItem;
+        }
+    } 
+    return result;
+}
+
+function getPureLabel(sID) {
+    if (sID == null) { return ""; }
+    return sID.substring(sID.lastIndexOf("_") + 4);
+}
+
+function filterVisibility(chkUserFilter, hidFilterStatus, flsFilter) {
+    var elmFilter = document.getElementById(chkUserFilter);
+    if (elmFilter.checked) {
+        $('#' + hidFilterStatus).val('true');
+        $('#flsFilter').show();
+
+    }
+    else {
+        $('#' + hidFilterStatus).val('false');
+        $('#flsFilter').hide();
+
+    }
+}
+ 
+
+function changeGridConfirm(grdID, btnConfirmID) {
+    $('#' + grdID + ' input:radio').each(
+        function () {
+            if ($(this).attr('checked')) {
+                if ($(this).parent("span").attr("class").toLowerCase() == 'true') {
+                    $('#' + btnConfirmID).val(sUnConfirm);
+                }
+                else {
+                    $('#' + btnConfirmID).val(sConfirm);
+                }
+            }
+        });
+}
+/*a*/
+function ChangeFocus(txt, lbl, priority, valID, hidID, hidPriorityID, btnID, message) {
+    if ($('#' + txt).val() == '') {
+        $('#' + txt).focus();
+        $('#' + txt).select();
+        alert(message);
+    }
+    else {
+        $('#' + lbl).show();
+        $('#' + txt).hide();
+
+        if ($('#' + txt).val() != priority) {
+            $('#' + hidID).val(valID);
+            $('#' + hidPriorityID).val($('#' + txt).val());
+            var btn = document.getElementById(btnID);
+            btn.click();
+        }
+    }
+}
+
+function ChangeView(lbl, txt) {
+    $('#' + lbl).hide();
+    $('#' + txt).show();
+    $('#' + txt).focus();
+    $('#' + txt).select();
+}
+
+function multiToggle(elmIDs, type) {
+    var arrElm = elmIDs.split(',');
+    for (var i = 0; i < ($(arrElm).length); i++) {
+        $('#' + arrElm[i]).toggle(type);
+    }
+}
+
+//*1
+function multiHide(elmIDs, type) {
+    var arrElm = elmIDs.split(',');
+    for (var i = 0; i < ($(arrElm).length); i++) {
+        $('#' + arrElm[i]).hide(type);
+    }
+}
+
+//*1
+function multiShow(elmIDs, type) {
+    var arrElm = elmIDs.split(',');
+    for (var i = 0; i < ($(arrElm).length); i++) {
+        $('#' + arrElm[i]).show(type);
+    }
+}
+
+//*1
+function base64EncodeUrl(str) {
+    str = Base64.encode(str);
+    return base64EncodeResolveUrl(str);
+}
+
+//*1
+function base64DecodeUrl(str) {
+    str = base64DecodeResolveUrl(str);
+    return Base64.decode(str);
+}
+
+//-- Base64:
+var Base64 = {
+    // private property
+    _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
+
+    // public method for encoding
+    encode: function (input) {
+        var output = "";
+        var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
+        var i = 0;
+
+        input = Base64._utf8_encode(input);
+
+        while (i < input.length) {
+
+            chr1 = input.charCodeAt(i++);
+            chr2 = input.charCodeAt(i++);
+            chr3 = input.charCodeAt(i++);
+
+            enc1 = chr1 >> 2;
+            enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
+            enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
+            enc4 = chr3 & 63;
+
+            if (isNaN(chr2)) {
+                enc3 = enc4 = 64;
+            } else if (isNaN(chr3)) {
+                enc4 = 64;
+            }
+
+            output = output +
+			this._keyStr.charAt(enc1) + this._keyStr.charAt(enc2) +
+			this._keyStr.charAt(enc3) + this._keyStr.charAt(enc4);
+
+        }
+
+        return output;
+    },
+
+    // public method for decoding
+    decode: function (input) {
+        var output = "";
+        var chr1, chr2, chr3;
+        var enc1, enc2, enc3, enc4;
+        var i = 0;
+
+        input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
+
+        while (i < input.length) {
+
+            enc1 = this._keyStr.indexOf(input.charAt(i++));
+            enc2 = this._keyStr.indexOf(input.charAt(i++));
+            enc3 = this._keyStr.indexOf(input.charAt(i++));
+            enc4 = this._keyStr.indexOf(input.charAt(i++));
+
+            chr1 = (enc1 << 2) | (enc2 >> 4);
+            chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+            chr3 = ((enc3 & 3) << 6) | enc4;
+
+            output = output + String.fromCharCode(chr1);
+
+            if (enc3 != 64) {
+                output = output + String.fromCharCode(chr2);
+            }
+            if (enc4 != 64) {
+                output = output + String.fromCharCode(chr3);
+            }
+
+        }
+
+        output = Base64._utf8_decode(output);
+
+        return output;
+
+    },
+
+    // private method for UTF-8 encoding
+    _utf8_encode: function (string) {
+        string = string.replace(/\r\n/g, "\n");
+        var utftext = "";
+
+        for (var n = 0; n < string.length; n++) {
+
+            var c = string.charCodeAt(n);
+
+            if (c < 128) {
+                utftext += String.fromCharCode(c);
+            }
+            else if ((c > 127) && (c < 2048)) {
+                utftext += String.fromCharCode((c >> 6) | 192);
+                utftext += String.fromCharCode((c & 63) | 128);
+            }
+            else {
+                utftext += String.fromCharCode((c >> 12) | 224);
+                utftext += String.fromCharCode(((c >> 6) & 63) | 128);
+                utftext += String.fromCharCode((c & 63) | 128);
+            }
+
+        }
+
+        return utftext;
+    },
+
+    // private method for UTF-8 decoding
+    _utf8_decode: function (utftext) {
+        var string = "";
+        var i = 0;
+        var c = c1 = c2 = 0;
+
+        while (i < utftext.length) {
+
+            c = utftext.charCodeAt(i);
+
+            if (c < 128) {
+                string += String.fromCharCode(c);
+                i++;
+            }
+            else if ((c > 191) && (c < 224)) {
+                c2 = utftext.charCodeAt(i + 1);
+                string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
+                i += 2;
+            }
+            else {
+                c2 = utftext.charCodeAt(i + 1);
+                c3 = utftext.charCodeAt(i + 2);
+                string += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
+                i += 3;
+            }
+
+        }
+
+        return string;
+    }
+}
+
+//*0
+function base64EncodeResolveUrl(str) {
+
+    str = str.replace(/\//g, "~");
+    str = str.replace(/\\/g, "|");
+    str = str.replace(/=/g, "e-q");
+    str = str.replace(/[+]/g, "p-s");
+    str = str.replace(/&/g, "a-n");
+    str = str.replace(/[\n]/g, "b-r");
+    return str;
+}
+
+//*0
+function base64DecodeResolveUrl(str) {
+
+    str = str.replace(/[~]/g, "/");
+    str = str.replace(/[|]/g, "\\");
+    str = str.replace(/e-q/g, "=");
+    str = str.replace(/p-s/g, "+");
+    str = str.replace(/a-n/g, "&");
+    str = str.replace(/b-r/g, "\n");
+    return str;
+}
+
+function pickDate(holderID, targetID, tdd) {
+    var sYear = $('#' + targetID + '_hidCurrentYear').val();
+    var sMonth = $('#' + targetID + '_hidCurrentMonth').val();
+    var sDay = $(tdd).attr('class').split(' ')[1];
+    var sDate = sYear + "/" + sMonth + "/" + sDay;
+
+    if (!$(tdd).is('.outOfMonthDay')) {
+        $('#' + targetID).val(sDate);
+        $('#' + holderID).hide();
+    }
+}
+ 
+ //*1
+function setMaxLengthForTextarea(txt, iMaxLength) {
+    $(document).ready(function () {
+        $(' textarea').each(function () {
+            if ($(this).attr('id').toLowerCase() == txt.toLowerCase()) {
+
+                $(this).keydown(function () {
+                    var iLength = $(this).val().length;
+                    // alert('length : ' + iLength + ' and max length : ' + iMaxLength);
+
+                    if (iLength > iMaxLength) {
+                        ///   alert($(this).val().substring(0, iMaxLength)); 
+                        $(this).val($(this).val().substring(0, iMaxLength));
+                    }
+                });
+            }
+        });
+    });
+}
+ 
+//*1
+function setSubTitle() {
+    $(".isSubTitle").live("mouseover mouseout", function (event) {
+        if (event.type == "mouseover") {
+            var t = $(this);
+            var text = t.attr('title');
+            if ((text == null || text == '') && !$('#' + t.attr('id') + '_help').length) { return; }
+            t.attr('title', '');
+            if (t.get(0).tagName == "IMG") {
+                t.attr('src', t.attr('src').replace(/([^.]*)\.(.*)/, "$1-over.$2"));
+            }
+            var exam = t.parent().find('.exam').html();
+            if (exam != null) {
+                text += "<br />" + exam;
+            }
+            if (!$('#' + t.attr('id') + '_help').length) {
+                t.after("<div class='helpDescription align dir nonbold' id='" + t.attr('id') + "_help'>" + text + "</div>");
+            }
+            else {
+                $('#' + t.attr('id') + '_help').show();
+            }
+        }
+        else {
+            var t = $(this);
+            if (t.get(0).tagName == "IMG") {
+                t.attr('src', t.attr('src').replace('-over', ''));
+            }
+            $('#' + t.attr('id') + '_help').fadeOut();
+        }
+    });
+}
+
+function validatePriority(hid) {
+    $(':input:text:.txtPriority').each(
+            function () {
+                $(this).keyup(function (e) {
+                    var reg = $('#' + hid).val();
+
+                    // alert(e.keyCode);
+                    if (e.keyCode != 96 && e.keyCode != 109 && e.keyCode != 8 && e.keyCode != 46) {
+                        if (!(e.keyCode >= 48 && e.keyCode <= 57) && !(e.keyCode >= 96 && e.keyCode <= 105)) {
+                            $(this).val('0');
+                            $(this).focus();
+                        }
+                    }
+                    else if ($(this).val().indexOf('-') != -1 && $(this).val().indexOf('-') != 0) {
+                        $(this).val('0');
+                        $(this).focus();
+                    }
+                    
+
+                    else if ($(this).val().split('-').length > 2) {
+                        $(this).val('0');
+                        $(this).focus();
+                    }
+
+                    
+                });
+            });
+}
+
+//*1
+function getGUID() {
+    var S4 = function () {
+        return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+    };
+    return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
+}
+
+//*1
+function getLoading(div, loading) {
+    if (loading == false) { return; }
+    if (loading == null || loading == true || loading.toLowerCase() == 'undefined') {
+        loading = '';
+    }
+    else if (loading.toLowerCase == "fade") {
+        return;
+    }
+    var sHeight = $('#' + div).height();
+    var sWidth = $('#' + div).width();
+    $('#' + div).html("<div style='text-align:" + loading + ";height:" + sHeight + "px;width:" + sWidth + "px'><img border=\"0\" src=\"" + loadingPath + "\" /></div>");
+}
+
+function mediaDisplayMode(mediaID, status) {
+    if (status == 'true') {
+        $('#' + mediaID).parent.show();
+    }
+    else {
+
+        $('#' + mediaID).parent.hide();
+    }
+}
+
+function createContainerTree(treeID, isContainerCollapsed, sContainerGroupID) {
+    var innerElm = "a";
+    $("#" + treeID).treeview({
+        animated: "fast",
+        collapsed: isContainerCollapsed
+    });
+
+    $("#" + treeID + " " + innerElm).each(function () {
+        $(this).removeClass('selected');
+        if ($(this).attr('onclick').indexOf('sGroupID=' + sContainerGroupID) != -1)
+        {
+            $(this).addClass('selected');
+        }
+//        $(this).click(function () {
+//            if ($(this).attr('style').indexOf('cursor:pointer') != -1)
+//            {
+//                $("#" + treeID + " " + innerElm).each(function () {
+//                    $(this).removeClass('selected');
+//                });
+
+//                $(this).addClass('selected');
+//            }
+//        });
+    });
+}
+
+function createTree(treeID) {
+    var innerElm = "a";
+
+    $("#" + treeID).treeview({
+        animated: "fast",
+        collapsed: isCollapsed
+    });
+
+    //--SELECT NODE:
+    $("#" + treeID + " " + innerElm).each(function () {
+        //$(this).css('cursor', 'pointer');
+        if ($(this).attr('onclick').indexOf('sGroupID=' + sGroupID) != -1) {
+            $(this).addClass('selected');
+            if (sGroupID != 0) {
+                isCollapsed = false;
+            }
+
+        }
+        $(this).click(function () {
+
+            if ($(this).attr('style').indexOf('cursor:pointer') == -1) {
+                return false;
+            }
+            //-- CLEAR NODES CLASS:
+            $("#" + treeID + " " + innerElm).each(function () {
+                $(this).removeClass('selected');
+            });
+
+            //-- ADD NODE CLASS:
+            $(this).addClass('selected');
+
+        });
+    });
+}
+function getHtmlUrl(url) {
+    var sResult = url;
+    var intIndexOfMatch = sResult.indexOf("&amp;");
+    while (intIndexOfMatch != -1) {
+        sResult = sResult.replace("&amp;", "&")
+        intIndexOfMatch = sResult.indexOf("&amp;");
+    }
+    return sResult;
+}
+function ValidateStatement(parent, tblAddStatement, sStatementUrl, sReferenceID, sGroupID, txtName, txtEmail, txtStatement, spn_rfvtxtStatement, spn_rgvtxtEmail, isRequireCaptcha, type, securityCode, spn_rfvtxtSecuerityCode, divStatement, DivCaptchaAjax_ClientID, CaptchaAjaxUrl) {
+    var txtName = $('#' + parent).find('#' + txtName);
+    var txtEmail = $('#' + parent).find('#' + txtEmail);
+    var txtStatement = $('#' + parent).find('#' + txtStatement);
+    var spn_rfvtxtStatement = $('#' + parent).find('#' + spn_rfvtxtStatement);
+    var spn_rgvtxtEmail = $('#' + parent).find('#' + spn_rgvtxtEmail);
+    var reg = /^((\s*)?(\w+([-+.]\w+)*@\w+(([.]|([-])*)\w+)*\.\w+([-.]\w+)*)(\s*)?)?$/;
+    var name = $(txtName).val();
+    var email = $(txtEmail).val();
+    var statement = $(txtStatement).val();
+    var sUrl = getHtmlUrl(sStatementUrl);
+    spn_rgvtxtEmail.hide();
+    if (statement != '') {
+        spn_rfvtxtStatement.hide();
+        if (email != '' && !email.match(reg)) {
+            spn_rgvtxtEmail.show();
+        }
+        else {
+            var sUrlStatement = ('ReferenceID=' + sReferenceID + '&GroupID=' + sGroupID + '&Name=' + base64EncodeUrl(name) + '&Email=' + base64EncodeUrl(email) + '&Statement=' + base64EncodeUrl(statement) + "&IsRC=" + isRequireCaptcha + '&Type=' + type + '&SecurityCode=' + base64EncodeUrl($("#" + securityCode).val()) + '&CaptchaText=' + base64EncodeUrl(getCaptchaText(DivCaptchaAjax_ClientID)));
+            //post(sUrl, getHtmlUrl(sUrlStatement), parent);
+            $.ajax({
+                type: "POST",
+                url: sUrl,
+                data: sUrlStatement,
+                success: function (msg) {
+                    if (msg.indexOf("cFf") < 0) {
+                        $("#" + divStatement).html(msg);
+                    }
+                    else {
+                        $("#" + divStatement + " .spnMessage").html(msg);
+                        setCaptchaText(DivCaptchaAjax_ClientID, CaptchaAjaxUrl);
+                    }
+                }
+            });
+        }
+    }
+    else {
+        spn_rfvtxtStatement.show();
+    }
+}
+
+function getCaptchaText(divCaptchaAjax) {
+    return $('#' + divCaptchaAjax + ' img').attr('src');
+}
+
+function setCaptchaText(divCaptchaAjax, CaptchaAjaxUrl) {
+    var sUrl = CaptchaAjaxUrl;
+    $.ajax({
+        type: "POST",
+        url: getHtmlUrl(sUrl),
+        data: '',
+        success: function (msg) {
+            $('#' + divCaptchaAjax + ' input[type=hidden]').val(msg);
+            $('#' + divCaptchaAjax + ' img').attr('src', msg);
+        }
+    });
+}

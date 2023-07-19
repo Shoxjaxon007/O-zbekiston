@@ -1,0 +1,197 @@
+﻿function initialize()
+{
+	var req;
+	try{
+		req=new ActiveXObject("Msxml2.XMLHTTP");
+	}catch(e){
+		try{
+			req=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		catch(oc){
+			req=null;
+		}
+	}
+	if(!req&&typeof XMLHttpRequest!="undefined"){
+		req=new XMLHttpRequest();
+	}
+	return req;
+}
+
+function exec(url) {
+    url = getNoCacheUrl(url);
+    url = getHtmlUrl(url);
+    var req = initialize();
+    req.open("GET", url, false);
+    req.send(null);
+}
+
+function getValue(url) {
+    url = getNoCacheUrl(url);
+    url = getHtmlUrl(url);
+    var req = initialize();
+    req.open("GET", url, false);
+    req.send(null);
+    responseHandler(req.responseText);
+    return req.responseText;
+}
+
+function getPostValue(url,callback, value) {
+    url = getNoCacheUrl(url);
+    url = getHtmlUrl(url);
+    var req = initialize();
+    req.open("Post", url, true);
+    req.setRequestHeader('User-Agent', 'XMLHTTP/1.0');
+    req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    req.onreadystatechange = function () {
+        if (req.readyState != 4) return;
+        if (req.status != 200 && req.status != 304) {
+            //			alert('HTTP error ' + req.status);
+            return;
+        }
+        callback(req);
+    }
+    if (req.readyState == 4) return; 
+    req.send(value);  
+
+//    req.open("Post", url, false);
+//    req.send(value);
+//    req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+//    responseHandler(req.responseText);
+//    return req.responseText;
+
+		
+
+}
+function load(sUrl, sDiv, sLoading) {
+    sUrl = getNoCacheUrl(sUrl);
+    sUrl = getHtmlUrl(sUrl);
+    getLoading(sDiv, sLoading);
+
+    if (sLoading != null && sLoading != false && sLoading.toLowerCase() == 'fade') {
+        $('#' + div).fadeOut("slow");
+    }
+
+    $('#' + sDiv).load(sUrl);
+
+    if (sLoading != null && sLoading != false && sLoading.toLowerCase() == 'fade') {
+        $('#' + sDiv).fadeIn("slow");
+    }
+}
+
+function post(sUrl, sData, sDivResult, sLoading) {
+    sUrl = getHtmlUrl(sUrl);
+    getLoading(sDivResult, sLoading);
+    $.ajax({
+        type: "POST",
+        url: sUrl,
+        data: sData,
+        success: function (msg) {
+            $('#' + sDivResult).html(msg);
+        }
+    });
+}
+
+function ajaxMethod(sUrl, sData, sDivResult, sLoading) {
+    sUrl = getHtmlUrl(sUrl);
+    getLoading(sDivResult, sLoading);
+    $.ajax({
+        cache: false,
+        url: sUrl,
+        data: sData,
+        success: function (msg) {
+            $('#' + sDivResult).html(msg);
+        }
+    });
+}
+
+
+function postForm(url,parameters,div,loading){
+	
+    if(url.substr(url.length-1)=="#"){
+		return false;
+    }
+
+    url = getNoCacheUrl(url);
+    url = getHtmlUrl(url);
+    if (loading) {
+        var height = $('#' + div).height()
+        document.getElementById(div).innerHTML = "<div style='height:" + height + "px'><img border=\"0\" src=\"Themes/_Public/Images/Loader/Medium_Cycle_DarkBlue.gif\" /></div>";
+    }
+
+	var req=initialize();
+	if(req!= null){
+		req.onreadystatechange = function(){
+			 process(div,req);
+		};
+
+		req.open('POST', url, true);
+		req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		req.setRequestHeader("Content-length", parameters.length);
+		req.setRequestHeader("Connection", "close");
+		req.send(parameters);
+	}
+}
+
+function getNoCacheUrl(url) {
+    if (url.substr(-1) != "&") {
+        url += "&";
+    }
+    var dt = new Date()
+    url += "njc=" + dt.getTime();
+    return url;
+}
+
+function process(div,req){
+	
+	if(req.readyState == 4){
+		if (req.status == 200){
+			if(req.responseText==""){
+				hideDiv(div);
+			}else{
+				showDiv(div);
+				//var responseText = req.responseText;
+//				if (responseText == "{timeout}") {
+//				    window.location = "default.aspx?action=timeout";
+//				}
+//				else {
+//				    putTextIntoElement(div,req.responseText);
+				//				}
+				responseHandler(req.responseText);
+				putTextIntoElement(div, req.responseText);
+			}
+		}else{
+			document.getElementById(div).innerHTML= "Exception was occurred:<br>" + req.statusText;
+		}
+	}
+}
+
+function putTextIntoElement(objId, htmlContenet) {
+    var oldObj = document.getElementById(objId);
+    var newObj = document.createElement(oldObj.tagName);
+    newObj.innerHTML = htmlContenet.replace("<form", "<formDIs").replace("</form>", "</formDIs>");
+    newObj.id = oldObj.id;
+    newObj.className = oldObj.className;
+
+    oldObj.parentNode.replaceChild(newObj, oldObj);
+}
+
+function responseHandler(response) {
+    if (response == "{timeout}") {
+        window.location = "default.aspx?action=timeout";
+    }
+}
+
+function showDiv(divid) {
+    if (document.layers) document.layers[divid].visibility = "show";
+    else document.getElementById(divid).style.visibility = "visible";
+}
+
+function hideDiv(divid) {
+    if (document.layers) {
+        document.layers[divid].visibility = "hide";
+    } else {
+        document.getElementById(divid).style.visibility = "hidden";
+    }
+}
+

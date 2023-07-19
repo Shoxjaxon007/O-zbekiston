@@ -1,0 +1,142 @@
+@charset "utf-8";
+/* CSS Document */
+
+.header .head-row2 .menu, .alignbox {
+	float:left;
+}
+.defaultbox, .antialignbox, .header .head-row3 .searchBox, .header .head-row2 .toolsBox {
+	float:right;
+}
+.title-blue3, .title-green3, .title-red3, .title-black3 {
+	padding:7px 7px 2px 30px;
+}
+.simple-block3 .title, .title-blue3, .title-green3, .title-red3, .title-black3 {
+	text-align:left;
+}
+.header .head-row3 .searchBox {
+	text-align:right;
+}
+.zoneBox, .header .head-row3 .zoneBox ul li span {
+	float:left;
+}
+.header .head-row3 .zoneBox ul li a {
+}
+.header .head-row3 .zoneBox ul li span {
+	background:url(../Images/mappath-bg-ltr.png) no-repeat scroll 0 center transparent;
+	padding-left:15px;
+	margin-right:15px;
+}
+.header .head-row3 .zoneBox ul li{
+	margin-top:2px;
+}
+.footer .lines ul li{
+	float:left;
+}
+
+
+/*----------------------UZBEK-------*/
+.title-embassy,
+.title-Economic,
+.titlecontact{
+	text-align: center;
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+.title-embassy span,
+.title-Economic span,
+.titlecontact span{
+	display: inline-block;
+	padding: 20px 25px 5px;
+	border-bottom: 1px solid #1c2442;
+}
+.cont-embassy,.cont-contact{
+	display: inline-block;
+}
+.cont-embassy img{
+	width: 272px;
+	float: left;
+	margin-right: 15px;
+	margin-bottom: 15px;
+}
+.cont-embassy p,.cont-contact p{
+	display: inline-block;
+	float: left;
+	text-align: left;
+	margin: 13px 0 5px;
+	width: calc(100% - 300px);
+}
+.full .cont-embassy p,.cont-contact p{
+	display: block;
+	float: none;
+	width: 100%;
+}
+.cont-embassy p em.fa,.cont-contact p em.fa{
+	font-family: FontAwesome;
+	font-size: 18px;
+	color: #4895dd;
+	margin-right: 5px;
+}
+.cont-embassy p span,.cont-contact p span{
+	color: #4895dd;
+	font-weight: 700;
+}
+.cont-embassy p strong,.cont-contact p strong{
+	margin-right: 50px;
+	font-weight: 700;
+	color: #000;
+}
+.map-embassy,.map-contact p{
+	margin: 20px;
+	padding: 4px;
+	border: 1px solid #1d3953;
+	background: #fff;
+}
+.Economic-uz p {
+    padding-bottom:  10px;
+    line-height: 20px;
+}
+
+.Economic-uz ul li {
+    margin-bottom:  10px;
+    line-height: 20px;
+}
+
+.Economic-uz ul {
+    padding-left: 20px;
+}
+
+table.table-economic {
+    border: 1px solid #ccc;
+}
+
+table.table-economic
+ tr td {
+    padding:  5px 10px;
+    border: 1px solid #ccc;
+}
+
+table.table-economic tr:nth-child(2n+1) {
+    background:  #ddd;
+}
+.Economic-uz ul.nonelist {
+    list-style: none;
+}
+.cont-uzbek p {
+    margin-bottom:  20px;
+    line-height: 20px;
+}
+
+.cont-uzbek img {
+    border: 4px solid #fff;
+    display:  block;
+    margin: 20px auto;
+}
+.cont-uzbek p img{
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+.cont-uzbek p span.green {
+    color: #00ce00;
+    font-weight: 700;
+}

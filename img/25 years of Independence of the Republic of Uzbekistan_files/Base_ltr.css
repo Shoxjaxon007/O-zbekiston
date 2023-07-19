@@ -1,0 +1,92 @@
+﻿/*--- Global */
+.nojs
+{
+    margin: 1em;
+    border: 1px solid #f00;
+    padding: .5em;
+    color: #f00;
+    text-align: center;
+}
+.hide
+{
+    display: none;
+}
+.show
+{
+    display: block;
+}
+.clear
+{
+    clear: both;
+}
+.txtalign
+{
+    text-align: left;
+}
+.txtcenter
+{
+    text-align: center;
+}
+.txtantialign
+{
+    text-align: right;
+}
+.align
+{
+    float: left;
+}
+.antialign
+{
+    float: right;
+}
+.dir
+{
+    direction: ltr;
+}
+.ltrforce
+{
+    direction: ltr;
+}
+.txtcapitalize
+{
+    text-transform: capitalize;
+}
+.txtlow
+{
+    text-transform: lowercase;
+}
+.lblValue
+{
+    display: block;
+    margin-top: .2em;
+    border: solid 1px #f00;
+}
+.nonbold
+{
+    font-weight: normal;
+}
+.bold
+{
+    font-weight: bold;
+}
+.pointer
+{
+    cursor: pointer;
+}
+.justify
+{
+    text-align: justify;
+}
+/* End Global ---*/
+
+/*--- Standard Element */
+/*body
+{
+    margin: 0 0 -1em;
+    padding: 0;
+    color: #333;
+    background: #fff;
+    font-family: tahoma,sans-serif;
+    font-size: 75%;
+}*/
+

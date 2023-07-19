@@ -1,0 +1,79 @@
+@charset "utf-8";
+/* CSS Document */
+
+.cDivVote .cTblVote{
+	width:100%;
+}
+.cDivVote .cTblVote table{
+	width:100%;
+}
+.cDivVote .cTrVote1{
+}
+.cDivVote .cTblRepeater, .cDivVote .cRadioOption{
+	width:100%;
+}
+.cDivVote .cTblRepeater{
+	border-collapse:collapse;
+	background:url(../../Images/cbgVoteBox.png) repeat-x left top;
+	margin-top:-4px;
+}
+.cDivVote .cTblVoteResult{
+	width:100%;
+	margin-top:10px;
+}
+.cDivVote .cDivVote001{
+	background:url(../../Images/cDivVote001.png) no-repeat left top;
+	padding-left:44px;
+	position:relative;
+	z-index:1;
+	height:25px;
+}
+*+html .cDivVote .cDivVote001{
+	height:24px;
+}
+.cDivVote .cDivVote002{
+	background:url(../../Images/cDivVote003.png) no-repeat right top;
+	padding-right:44px;
+}
+.cDivVote .cDivVote003{
+	background:url(../../Images/cDivVote002.png) repeat-x right top;
+	height:23px;
+	padding-top:2px;
+}
+.cDivVote .cRadioOption, .cDivVote .cCheckOption{
+	border:1px solid #ccc;
+	/*border-radius:5px;*/
+}
+.cDivVote .cRadioOption tr, .cDivVote .cCheckOption tr{
+	height:20px;
+}
+.cDivVote .cRadioOption input , .cDivVote .cCheckOption input{
+	margin:0 5px;
+}
+.cDivVote .cBtn{
+	background:url(../../Images/cBtnVoteBox.png) no-repeat center top;
+	border:none;
+	width:71px;
+	padding:3px 0 22px;
+	cursor:pointer;
+	margin-top:5px;
+}
+.cDivVote tr.cTrOptionTitle{
+	background:url(../../Images/cbgLineVote.png) no-repeat center top;
+}
+* html .cDivVote tr.cTrOptionTitle, *+html .cDivVote tr.cTrOptionTitle{
+	background:none;
+}
+.cDivVote td.cTdOptionTitle{
+	background:none;
+}
+.cDivVote .cTdOptionTitle{
+	padding:2px 5px;
+	float:right;
+	width:48%;
+}
+.cDivVote .cTdVoteTitle{
+	padding:2px 5px;
+	float:right;
+	width:30%;
+}

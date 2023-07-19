@@ -1,0 +1,95 @@
+﻿/* ---------------------- Menu - Horizontal - LTR */
+ul.dropdownh {
+	clear: both;
+	padding-top: 12px;
+	z-index:9999 !important;
+}
+ul.dropdownh li {
+	font-weight: bold;
+	float: left;
+	list-style: none;
+	direction: ltr; /* Important - jQuery needs this (Do NOT Remove it) */
+	background: url(../Images/bgs37q.gif) no-repeat right 4px;
+	z-index:9999 !important;
+}
+* html ul.dropdownh li {
+	font-weight: bold;
+	float: left;
+	list-style: none;
+	direction: ltr; /* Important - jQuery needs this (Do NOT Remove it) */
+ 	display: inline-block;
+	background: url(../Images/bgs37q.gif) no-repeat right 4px;
+	padding: 0 10px;
+}
+ul.dropdownh > li a span:hover { color: #52a3ff !important; }
+ul.dropdownh a:active span { color: #52a3ff; }
+ul.dropdownh li span {
+	display: block;
+	padding: 4px 18px 12px;
+	color: #fff;
+	text-decoration: none;
+}
+* html ul.dropdownh li span {
+	display: block;
+	width: 100%;
+	display: inline-block;
+	padding: 4px 18px 12px;
+	color: #fff;
+	text-decoration: none;
+}
+* html ul.dropdownh li a img {  border: 0;}
+ul.dropdownh li a.last-child { border-right: none; /* Doesn't work in IE */ }
+ul.dropdownh li.hover, ul.dropdownh li:hover {
+	color: #52a3ff !important;
+	position: relative;
+}
+ul.dropdownh li.hover > a span { color: #0066cc !important; }
+ul.dropdownh ul {
+	width: 220px;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	border: 1px #999 solid;
+	z-index:9999 !important;
+	/*box-shadow: -1px 1px 5px #ccc;*/
+}
+ul.dropdownh ul li {
+	font-weight: normal;
+	color: #000;
+	border-bottom: 1px solid #ccc;
+	float: none;
+	background: url(../Images/bg-li.gif) no-repeat 5px center #f6f6f6;
+}
+ul.dropdownh li.havesub > span {
+	background: url(../Images/bgs54q.gif) no-repeat right 11px;
+}
+ul.dropdownh li.havesub > a span {
+	background: url(../Images/bgs54q.gif) no-repeat right 11px;
+}
+/* IE 6 & 7 Needs Inline Block */
+ul.dropdownh ul li span {
+	border-right: none;
+	display: block;
+	color: #000 !important;
+	padding: 4px 20px !important;
+}
+* html ul.dropdownh ul li span {
+	border-right: none;
+ 	display: inline-block;
+	color: #000 !important;
+	padding: 4px 20px !important;
+}
+ul.dropdownh ul li:hover { background-color: #eaeaea; }
+ul.dropdownh ul li a span:hover { color: #0066ff; }
+ul.dropdownh ul ul {
+	left: 100%;
+	top: -1px;
+}
+ul.dropdownh li:hover > ul { visibility: visible; }
+ul.dropdownh ul li.havesub > span {
+	background: url(../Images/rtss2.png) no-repeat right center;
+}
+ul.dropdownh ul li.havesub > a span {
+	background: url(../Images/rtss2.png) no-repeat right center;
+}
+/* ---------------------- :) */

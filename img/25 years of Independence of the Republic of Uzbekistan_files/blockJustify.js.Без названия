@@ -1,0 +1,86 @@
+function showDiv(a, b, c, x, y) {
+    if (jQuery.trim($("#divAntialignZone").html()) == "") { var leftbox = "null"; $("#divAntialignZone").hide();}
+    if (jQuery.trim($("#divDefaultZone").html()) == "") { var midbox = "null"; $("#divDefaultZone").hide(); }
+    if (jQuery.trim($("#divAlignZone").html()) == "") { var rightbox = "null"; $("#divAlignZone").hide(); }
+
+    var t = a + b + c + x + y;
+
+    if (leftbox == "null" || (midbox == "null" || rightbox == "null")) {
+        if (leftbox == "null") {
+            if (midbox == "null" || rightbox == "null") {
+                if (midbox == "null") {
+                    $("#divAlignZone").css("width", t);
+                    $("#divAlignZone").fadeIn(600);
+
+                }
+                if (rightbox == "null") {
+                    $("#divDefaultZone").css("width", t);
+                    $("#divDefaultZone").fadeIn(1200);
+                }
+            }
+            else {
+                b = a + b + x;
+                if ($("#divAlignZone").css("float") == "right") {
+                    $("#divAlignZone").css({ "marginLeft": y, "width": c });
+                }
+                else {
+                    $("#divAlignZone").css({ "marginRight": y, "width": c });
+                }
+                $("#divDefaultZone").css("width", b);
+                $("#divAntialignZone").css("width", 0);
+                $("#divAlignZone").fadeIn(600);
+                $("#divDefaultZone").fadeIn(500);
+
+            }
+        }
+
+        else if (midbox == "null") {
+            if (rightbox == "null") {
+                $("#divAntialignZone").css("width", t);
+                $("#divAntialignZone").fadeIn(600);
+            }
+            else {
+                a = a + b + x;
+                if ($("#divAntialignZone").css("float") == "left") {
+                    $("#divAntialignZone").css({ "marginRight": y, "width": c });
+                    $("#divAlignZone").css("width", a);
+                }
+                else {
+                    $("#divAntialignZone").css({ "marginLeft": y, "width": a });
+                    $("#divAlignZone").css("width", c);
+                }
+                $("#divDefaultZone").css("width", 0);
+                $("#divAlignZone").fadeIn(600);
+                $("#divAntialignZone").fadeIn(500);
+            }
+        }
+
+        else if (rightbox == "null" && midbox != "null") {
+            b = b + c + y;
+            if ($("#divAntialignZone").css("float") == "right") {
+                $("#divAntialignZone").css({ "marginLeft": x, "width": a });
+            }
+            else {
+                $("#divAntialignZone").css({ "marginRight": x, "width": a });
+            }
+            $("#divDefaultZone").css("width", b);
+            $("#divAlignZone").css("width", 0);
+            $("#divDefaultZone").fadeIn(600);
+            $("#divAntialignZone").fadeIn(500);
+        }
+    }
+    else {
+        $("#divAntialignZone").css("width", a);
+        $("#divDefaultZone").css("width", b);
+        $("#divAlignZone").css("width", c);
+        if ($("#divAntialignZone").css("float") == "left") {
+            $("#divDefaultZone").css({ "marginLeft": x, "marginRight": y });
+        }
+        else {
+            $("#divDefaultZone").css({ "marginLeft": y, "marginRight": x });
+        }
+        $("#divAntialignZone").fadeIn(300);
+        $("#divAlignZone").fadeIn(600);
+        $("#divDefaultZone").fadeIn(1200);
+    }
+};

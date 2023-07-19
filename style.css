@@ -1,0 +1,60 @@
+body{
+    background: url(https://www.norma.uz/img/75/20/226f4bec6cd72288f547ab6a9a56.jpg);
+    background-repeat: no-repeat;
+    background-size: 110% 110%;
+    width: 1200px;
+    height: 100px;
+    background-color: cornflowerblue;
+}
+
+h1{
+    text-align: center;
+    color: gold;
+}
+
+h2{
+    text-align: center;
+    color: chartreuse;
+}
+
+.Bayrog{
+    width: 580px;
+    height: 500px;
+    transition: 5s;
+}
+
+.Bayrog:hover{
+    border-radius: 95%;
+    transition: 5s;
+}
+
+.bg{
+    display: flex;
+    justify-content: space-between;
+}
+
+.gerbi{
+    width: 580px;
+    height: 500px;
+    transition: 5s;
+}
+
+.gerbi:hover{
+    border-radius: 95%;
+    transition: 5s;
+}
+
+.prezidenti{
+    width: 580px;
+    height: 500px;
+    transition: 5s;
+}
+
+.prezidenti:hover{
+    border-radius: 95%;
+    transition: 5s;
+}
+
+p{
+    color: whitesmoke;
+}

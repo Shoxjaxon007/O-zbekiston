@@ -1,0 +1,1787 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+* {
+	margin:0;
+	padding:0;
+}
+table, tr {
+	table-layout:fixed;
+}
+.cSs, .cFf, .cWw, .cTblLabel .cValue, .cTblData .cLabel, .cTblInnerData .cLabel, .cItem table .cHeader .cTitle, .cFooter .cVotePart .cHeader, .cFooter .cStatementPart .cHeader {
+	font-weight: bold;
+}
+.cStatementPart .cLabel, .cFooter .cVotePart .cResult .cBody .cResult {
+	color: #888174;
+}
+.cBtn:hover, .cBtn_fix:hover, .cBtn_fit:hover, .cTitle, .cTitle1, .cTitle2, .cFooter .cTagPart .cHeader, .cFooter .cRelatedPart .cHeader, .cFooter .cResourcePart .cLabel, .cFooter .cVotePart .cHeader, .cFooter .cVotePart .cResult .cBody .cOption, .cFooter .cStatementPart .cHeader {
+	color: #000;
+}
+.cTitle, .cTitle1, .cTitle2, .cFooter .cTagPart .cHeader, .cFooter .cRelatedPart .cHeader, .cFooter .cResourcePart .cLabel, .cFooter .cVotePart .cTitle {
+	font-weight: bold;
+}
+.cVotePart, .cStatementPart {
+	height: 100%;
+	overflow: hidden;
+	margin-top: 10px;
+	background-color:#e8ebea;
+	border:1px solid #ccc7be;
+	/*border-radius:5px;*/
+	padding:4px 8px 8px;
+}
+.cTbx, .cTbx_half, .cTbx_long, .cDdl, .cDdl_fix, .cDdl_fit, .cLinkpart, .cBorder, .cHline3 {
+	border-color: #888174;
+	border-width: 1px;
+}
+.cTbx, .cTbx_half, .cTbx_long, .cDdl, .cLinkpart, .cBorder {
+	border-style: solid;
+	color: #373737;
+	border: 1px solid #afafaf;
+}
+.cTbx:hover, .cTbx_half:hover, .cTbx_long:hover, .cDdl:hover, .cDdl_fix:hover, .cDdl_fit:hover {
+	border-color: #6b94a0;
+}
+/* End Common Classes ---*/
+
+/* --- Text & Message */
+.cWeak {
+	color: #aaa;
+}
+.cTiny {
+	font-size: .7em;
+}
+.cSmall {
+	font-size: .9em;
+}
+.cS, .cSs {
+	color: #080;
+}
+.cF, .cFf, .cValidator {
+	color: #f00;
+}
+.cW, .cWw {
+	color: #f80;
+}
+.cD {
+	color: #d2d2d2;
+}
+.cS_Message {
+	background:url(../Images/cS.png) no-repeat 5px center #f9ffe4;
+	/*border-radius:5px;*/
+	padding:7px 0 9px 45px;
+	border:1px solid #c6d985;
+}
+.cW_Message {
+	background:url(../Images/cW.png) no-repeat 5px center #fffdd5;
+	/*border-radius:5px;*/
+	padding:7px 0 9px 45px;
+	border:1px solid #efe658;
+	display:block;
+	margin: 10px 0 0 0;
+}
+.cF_Message {
+	background:url(../Images/cF.png) no-repeat 5px center #fff2f2;
+	/*border-radius:5px;*/
+	padding:7px 0 9px 45px;
+	border:1px solid #ffb1a7;
+}
+.cTitle {
+	font-size: 1em;
+	line-height:20px;
+	display:inline-block;
+}
+.cSubTitle {
+	font:bold 12px tahoma;
+	padding-bottom:5px;
+	color:#000;
+}
+.cForm .cTitle {
+	font-size: 0.88em;
+	line-height:20px;
+	display:inline-block;
+}
+.cTitle1 {
+	color:#fff;
+	background:url(../Images/bgheadds.gif) repeat-x left top #1c2442;
+	padding:4px 10px;
+	border-bottom:2px solid #000;
+	/*text-shadow:0 0 3px #000;*/
+}
+.cTitle1:hover {
+	color:#d8d8d8;
+}
+.cTitle1 a {
+	color:#fff;
+}
+.cTitle1 a:visited {
+	color:#fff;
+}
+.cFeuilleton {
+	border-left:3px solid #aec889;
+	padding:5px 10px;
+	margin:10px 5px;
+	font:11px tahoma;
+}
+.cFeuilleton ul {
+	list-style-type:none;
+}
+.cFeuilleton ul li{
+	margin-bottom:2px;
+}
+.cFeuilleton ul li span{
+	display:inline-block;
+}
+.cFeuilleton .cLabel{
+	width:auto !important;
+	padding:0 !important;
+	margin-bottom:0 !important;
+}
+.cFeuilleton .cValue{
+	width:auto !important;
+	padding:0 !important;
+}
+.cDownload {
+	border-left:0 dashed #aec889;
+	border-top:1px dashed #aec889;
+	border-bottom:1px dashed #aec889;
+	border-right:1px dashed #aec889;
+	padding:5px 10px;
+	margin:10px 5px;
+	background:url(../Images/bgdnlod.gif) repeat-y left top;
+	display:inline-block;
+}
+.cDownload div {
+	background:url(../Images/1319955325_attach.png) no-repeat left 5px;
+	padding:4px 0 4px 20px;
+}
+.cContent {
+	padding:10px;
+	background:url(../Images/1316244831_play.gif) no-repeat 20px top #fff;
+	color:#50493c;
+	/*border-radius:0 0 5px 5px;*/
+	margin-bottom:10px;
+	display:block;
+	border:1px solid #ddd;
+	border-top:none;
+}
+.cContent table {
+	width:100%;
+}
+.cContent .cLabel {
+	margin-bottom:7px;
+}
+.cTitle2 {
+	font-size: 1.333em;
+}
+.cTitle1 a {
+	color:#fff;
+	/*text-shadow:0 0 3px #000;*/
+}
+.cTitle1 a:hover {
+	color:#d8d8d8;
+	text-decoration:none;
+}
+.cDivPadding{
+	padding:25px;
+}
+/* End Text & Message ---*/
+
+/*--- Object */
+.cBtn, .cBtn_fix {
+	padding: 0 1em .1em;
+	font:11px tahoma;
+	text-align: center;
+	margin:-1px 0 0 5px;
+	height:25px;
+	border:none;
+	background:url(../Images/cBtn_fix_bg.png) no-repeat center top transparent;
+	cursor:pointer;
+}
+.cBtn_fix {
+	width: 10em;
+}
+.cBtn_fit {
+	padding-left: 5px;
+	padding-right: 5px;
+	width: 100%;
+	text-align: center;
+}
+.cTbx {
+	width: 15em;
+	font:11px tahoma;
+	height:19px;
+	background:url(../Images/backgrounds-sprite.gif) repeat-x left top #fff;
+}
+.cTbx_half {
+	width: 6.5em;
+	height:18px;
+	background:url(../Images/backgrounds-sprite.gif) repeat-x left top #fff;
+}
+.cTbx_long {
+	width: 263px;
+	font:11px tahoma;
+	background:url(../Images/backgrounds-sprite.gif) repeat-x left top #fff;
+}
+.cDdl_fit {
+	width: 100%;
+}
+.cDdl_fix {
+	width: 13.3em;
+	font:11px tahoma;
+	padding:1px;
+}
+/* End Object ---*/
+
+.cDataPart, .cLabelPart, .cLinkPart, .cResourcePart {
+	height: 100%;
+}
+.cDataPart, .cLabelPart, .cResourcePart {
+	margin-top: .3em;
+}
+.cData {
+	width: 70%; /*border: solid 3px #800;*/
+}
+.cComment {
+	width: 30%; /*border: solid 3px #800;*/
+}
+.cLinkPart {
+	margin-bottom: 1em;
+	padding: .5em;
+}
+.cHline, .cHline2 {
+	margin: .5em auto;
+	border-bottom: solid 1px #ddd;
+	line-height: 0;
+}
+.cHline {
+	width: 70%;
+}
+.cHline2, .cHline3 {
+	width: 100%;
+}
+.cHline3 {
+	margin: 0 auto .5em;
+	border-bottom-style: dashed;
+	line-height: 0;
+}
+.cRssImg img {
+	max-height:100px;
+	max-width:100px;
+	margin:10px;
+}
+/* --- Table */
+
+.cTblLabel {
+	width: 100%;
+	padding: 0; /*border: solid 3px #090;*/
+	margin-top: 1em;
+}
+.cTblLabel td {
+	padding: .1em .3em;
+}
+.cTblLabel .cLabel {
+	white-space: nowrap;
+	width: 20%;
+	text-align: right;
+}
+.cTblLabel .cValue {
+	width: 80%;
+	text-align: left;
+}
+.cTblData {
+	width: 100%;
+	padding: 0; /*border: solid 3px #090;*/
+	border-collapse:collapse;
+	/*border-radius:5px;*/
+}
+.cTblInnerData {
+	padding: 0; /*border: solid 3px #090;*/
+	margin:auto;
+}
+* html .cTblInnerData {
+	padding: 0; /*border: solid 3px #090;*/
+	margin:auto;
+	table-layout:auto;
+}
+.cTblInnerData table, .cTblInnerData tr {
+	table-layout:auto;
+}
+.cTblData .cLabel, .cTblInnerData .cLabel {
+	width: 30%;
+	text-align: right; /*border: solid 3px #800;*/
+	vertical-align: top;
+	padding-top: .3em;
+}
+.cTblData .cValue, .cTblInnerData .cValue {
+	/*width: 70%;*/ /*border: solid 3px #f0f;*/
+	vertical-align: top;
+	text-align: left;
+	padding-bottom: .4em;
+}
+/* End Table ---*/
+
+/* --- Grouping Modules Such As News, Article,... */
+.cItem {
+	direction: ltr;
+}
+.cItem .cTblTitleBar {
+	width: 100%;
+	padding: 0;
+	margin-top: 1em;
+}
+.cItem .cTblTitleBar .cLabel {
+	text-align: left;
+	vertical-align: top;
+}
+.cItem .cDetailImg {
+	float: right;
+	padding: 5px 5px 5px 10px;
+}
+.cItem .cListImg {
+	float: right;
+	padding: 0px 0px 5px 5px;
+	vertical-align: top;
+}
+.cItem .cUlContentV {
+}
+.cUlTitleV {
+	list-style-type:none;
+}
+* html .cUlTitleV {
+	list-style-type:none;
+ 	list-style-position:outside;
+}
+.cUlTitleV li {
+	padding:1px 10px;
+	background:url(../Images/ndtvsprite2.png) no-repeat left 8px;
+	table-layout:auto;
+	margin-left:5px;
+	display:block;
+}
+* html .cUlTitleV li {
+	padding:1px 10px;
+	background:url(../Images/ndtvsprite2.png) no-repeat left 8px;
+	table-layout:auto;
+	margin-left:5px;
+	display:block;
+ 	list-style-position:outside;
+ 	display:inline-block;
+}
+.cUlTitleV li a:hover {
+	text-decoration:none;
+	color:#4895dd;
+}
+.cUlTitleH {
+}
+.cPublishTime, .cTdAntiAlign {
+	text-align: right;
+}
+.cHeader {
+	font:bold 11px tahoma;
+	padding-bottom:10px;
+}
+.cItem .cTblTitleBar .cTdAntiAlign {
+	text-align: right;
+}
+.cItem .cTblTitleBar .cLabel, .cPublishTime {
+	font-size: 0.8em;
+	padding-top: .3em;
+}
+.cFooter .cResourcePart {
+	font-size: 1em;
+}
+.cFooter .cResourcePart a {
+	color:#50493c;
+}
+.cFooter a {
+	color:#222;
+	border:none;
+}
+.cFooter .cResourcePart .cPart {
+	padding-top:5px;
+}
+.cFooter .cTagPart .cHeader, .cFooter .cRelatedPart .cHeader {
+	padding-top: 0.5em;
+}
+.cFooter .cTagPart .cBody, .cFooter .cRelatedPart .cBody {
+	list-style-type:none;
+}
+.cFooter .cTagPart .cBody .cTag, .cFooter .cRelatedPart .cBody .cRelated {
+	padding:1px 10px;
+	background:url(../Images/ndtvsprite2.png) no-repeat left 8px;
+	display:block;
+}
+.cFooter .cTagPart .cBody .cTag a:hover, .cFooter .cRelatedPart .cBody .cRelated a:hover {
+	color:#4895dd;
+}
+.cItem .cDetailText {
+	padding: 10px 8px 8px 8px;
+	text-align: justify;
+	background-color:#fff;
+}
+.cFooter .cResourcePart, .cFooter .cTagPart, .cFooter .cRelatedPart, .cFooter .cVotePart {
+	padding: 8px;
+	background-color:#eee;
+	margin-top:10px;
+	/*border-radius:5px;*/
+	border:1px solid #aaa;
+}
+.cFooter .cVotePart label {
+	margin-left:4px;
+}
+.cFooter .cVotePart .cResult {
+	/*border-radius: 5px;*/
+	background-color: #dedede;
+	margin-top: 10px;
+}
+.cFooter .cVotePart .cResult .cHeader {
+	text-align: left;
+	margin:0 10px;
+	border-bottom:1px solid #eee;
+}
+.cFooter .cVotePart .cResult .cBody {
+	padding-left: 10px;
+}
+.cFooter .cVotePart .cResult .cFooter {
+}
+.cFooter .cVotePart .cHeader {
+	padding: 4px 0 0.5em;
+}
+.cFooter .cVotePart .cBody {
+	color:#50493c;
+}
+* html .cFooter .cVotePart .cBody table {
+	table-layout:auto;
+}
+.cFooter .cVotePart .cFooter {
+	padding-top: 1em;
+}
+.cFooter .cVotePart .cResult .cBody .cOption {
+	padding-bottom: 0.5em;
+}
+.cFooter .cVotePart .cResult .cBody .cCount {
+	padding-bottom: 0.5em;
+	padding-left: 1em;
+}
+.cFooter .cStatementPart .cHeader {
+}
+.cFooter .cStatementPart .cBody {
+}
+.cFooter .cStatementPart .cFooter {
+}
+.cFooter .cStatementPart .cFooter table {
+	margin:10px auto 0;
+	border:0;
+}
+.cFooter .cStatementPart .cBody .cAlign {
+	float:right;
+}
+.cFooter .cStatementPart .cRptHeader {
+	background:url(../Images/drtty.gif) repeat-x left top #dcdcdc;
+	padding: 0.5em 0em 0.5em 0.5em;
+	color:#50493c;
+}
+* html .cFooter .cResourcePart .cRptHeader {
+	table-layout:auto;
+}
+.cFooter .cStatementPart .cTblData .cStatement {
+	padding: 1em;
+	text-align: justify;
+	background-color:#fff;
+	color:#50493c;
+	margin-bottom:3px;
+	display:block;
+}
+.cFooter .cBack {
+	text-align: right;
+}
+.cItem .cSeparator {
+	margin: 2em auto;
+	border-bottom: 1px dashed #888174;
+	line-height: 1;
+}
+.cTitleView .cItem {
+	padding-bottom: 1em;
+}
+/* END Grouping Modules Such As News, Article,... ---*/
+
+/* --- Weather, Currency,... */
+.cDivWeather select{
+	width: 11.4em;
+}
+.cItem table .cHeader {
+	padding: 8px;
+	width:100%;
+	display:table;
+}
+.cCurrency .cTitle, .cCurrency {
+	color:#000;
+}
+.cCurrency .cItem table .cHeader {
+	padding: 10px;
+	display:table;
+	width:auto;
+}
+.cItem table .cHeader .cIcon {
+	padding: 10px;
+}
+.cItem table .cDetail {
+	text-align: center;
+	width: 100%;
+}
+.cItem table .cDetail .cRowTitle {
+	color: #fff;
+	padding-bottom: 4px;
+	margin-bottom:4px;
+}
+.cItem table .cDetail .cRowContent {
+	width: 80px;
+	padding-bottom: 2px;
+}
+.cItem table .cDetail .cPart {
+	width: 80px;
+	border: 1px solid #717171;
+	padding-bottom: 2px;
+	float:left;
+	/*border-radius:5px;*/
+	margin:0 0 3px 6px;
+	background:url(../Images/bgtitlew.png) no-repeat left top #ddd;
+	color:#222;
+	font-size: 11px;
+}
+.cItem table .cHeader, .cItem table .cDetail .cRowContent {
+	float:left;
+}
+.cTblWeather {
+	width: 100%;
+	padding: 0; /*border: solid 3px #090;*/
+	border:1px solid #717171;
+	background:url(../Images/ssd44.jpg) repeat-x left top #fff;
+	/*border-radius:5px;*/
+	color:#fff;
+}
+* html .cTblWeather table {
+	table-layout:auto;
+}
+.cTblWeather .cTitle {
+	color:#CCC;
+}
+.cDdl {
+	padding:1px;
+	font:11px tahoma;
+}
+.cItem table .cHeader, .cItem table .cDetail .cRowContent {
+	float:left;
+}
+.cCurrency {
+	padding:5px;
+	border:1px solid #444;
+	/*border-radius:5px;*/
+	background:url(../Images/bgco.jpg) repeat-x left bottom #fff;
+}
+.cConvert {
+	display:inline-block;
+	width:100%;
+	margin-top:5px;
+	border-collapse:collapse;
+	color:#fff;
+}
+.cConvertHeader {
+	margin-bottom:10px;
+	font:bold 11px tahoma;
+}
+.cConvertAlign {
+	margin-bottom:10px;
+	text-align:center;
+}
+.cConvertAntiAlign{
+	padding: 20px 10px 10px;
+	margin-top: 20px; 
+	background-color: #fcfcfc;
+}
+.cConvertAntiAlign div span {
+	width:45px;
+	padding-top:2px;
+	color:#000;
+	display:inline-block;
+}
+.cConvertAntiAlign div {
+	margin-bottom:5px;
+	text-align:center;
+}
+.cConvertAntiAlign div img {
+	cursor:pointer;
+	margin:0 75px;
+}
+.cConvertFooter {
+	background: url(../Images/cBtnVoteBox.png) no-repeat center top;
+	margin:5px 0 0 0;
+	font:11px tahoma;
+	border: medium none;
+    cursor: pointer;
+    padding: 3px 0 4px;
+    width: 71px;
+}
+.cConvertResult {
+    color: #000;
+    margin: 10px auto 0;
+}
+.cCurrency .cItem table .cDetail {
+	padding:5px;
+}
+.cCurrency .cItem table .cDetail .cRowContent {
+	width:50%;
+	color:#333;
+	font:11px tahoma;
+	text-align:left;
+	padding-left:10px;
+}
+.cCurrency .cHeader {
+	color:#666;
+}
+.cCurrency .cItem table .cDetail .cRowTitle {
+	width:50%;
+	color:#333;
+	text-align:right;
+}
+.cCurrency .cTblData tr, .cCurrency .cTblData table {
+	table-layout:auto;
+	border-collapse:separate;
+}
+.cCurrency .cTblData {
+	background-color:#fcfcfc;
+	padding:3px;
+	border-collapse:separate;
+}
+.cCurrency .cHline, .cHline2 {
+	border:none;
+}
+.cCurrency .cItem table .cHeader, .cCurrency .cItem table .cDetail .cRowContent {
+	float:none;
+}
+.cDivCurrency .cHeader{
+	padding:5px 0 !important;
+	text-align:center;
+	width:100% !important;
+	background-color:#f4f4f4;
+}
+/* END Weather, Currency,...  ---*/
+/* --- Answer, ,... */
+.cInnerText {
+	border-style:solid;
+	border-width:3px 1px 1px 1px;
+	/*border-radius: 5px;*/
+	padding: 5px;
+	text-align: justify;
+	margin:5px 0 5px 10px;
+	background-color: #fffee2;
+	border-color:#aaa;
+	/*box-shadow:2px 2px 3px #aaa;*/
+}
+.cDivViewType, .cDivContainer {
+	padding:5px;
+	background-color: #ebebeb;
+	margin:5px 0 10px;
+	display:block;
+	/*border-radius:5px;*/
+}
+.cDivViewType label {
+	margin-right: 15px;
+}
+.cDivViewType img {
+	margin: 0 2px;
+}
+.cDivContainer ul {
+	list-style-type:none;
+}
+.cForm {
+	background-color:#f8f8f8;
+	border:1px solid #ededed;
+	/*border-radius:5px;*/
+	padding:15px 10px 10px;
+	margin-top:15px;
+	overflow:hidden;
+}
+.cForm .cBody {
+	padding: 15px 0 5px;
+}
+.cForm .cBody .cAlign {
+	float:right;
+}
+.cTdSubmit{
+	text-align:right;
+}
+/*  END Answer   */
+
+/*  ----------  SiteStatistics  ---------   */
+.cOverflow{
+	overflow:auto;
+}
+
+/*-------------- SiteMap ---------------*/
+.SiteMapview {
+	list-style-type:none;
+	display:inline-block;
+	background:url(../Images/1337230021_go-home.png) no-repeat left 0;
+	margin:10px;
+}
+.SiteMapview li{
+	margin:0 0 0 20px;
+}
+.SiteMapview li span{
+	color:#333;
+	padding:3px 0 4px;
+	display:block;
+}
+.SiteMapview li a:hover{
+	color:#069;
+}
+.SiteMapview li ul li{
+	list-style-type:none;
+	text-indent:20px;
+	padding-top:3px;
+}
+.SiteMapview li ul li span{
+	background:url(../Images/folder-horizontal-open.png) no-repeat 5% 3px;
+	list-style-type:none;
+	text-indent:20px;
+	padding:3px 0 4px 16px;
+}
+.SiteMapview li ul li span:hover{
+	background:url(../Images/folder-open-document.png) no-repeat 5% 3px;
+}
+.SiteMapview li ul li{
+	background:url(../Images/treeview-red-line-ltr.gif) no-repeat left top;
+	list-style-type:none;
+}
+/*  -------------- Search ------------  */
+.cDivSiteSearch .cTbx{
+	background:url(../Images/bgsitesearch-inp.png) no-repeat center top;
+	border:none;
+	padding: 4px 9px;
+    width: 166px;
+	float:left;
+}
+input.cBtnSearch {
+	width: 34px;
+	height: 25px;
+	float:right;
+	margin-left:3px;
+	font-size:0px;
+	border: none;
+	cursor: pointer;
+	background:url(../Images/bgsitesearch-bt.png) no-repeat center top;
+}
+.cDivSiteSearch{
+	height:32px;
+	text-align:right;
+	margin:-3px auto 0;
+	max-width:225px;
+}
+.cDivPageContent{
+	color: #555;
+	text-align: justify;
+}
+.cSearchMark{
+	font-weight: bold;
+}
+/*  ----------  TellAFriendForm  ---------   */
+
+.cDivMask {
+	position: fixed;
+	width: 470px;
+	background: url(../Images/ShopingBgWPage001.gif) repeat-x left bottom #fff;
+	/*border-radius: 10px;*/
+	border: 2px solid #555;
+	z-index: 1000;
+}
+.cDivMask td{
+	table-layout:auto !important;
+}
+.cDivMask input.cTbx{
+	width:100%;
+}
+.cDivOuterTellAfriend {
+	z-index: 999;
+	background: url(../Images/bgHide0021.png) repeat left top;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+}
+.cDivMask .cLabel {
+	text-align: left;
+	font: normal 11px tahoma;
+}
+.cDivMask .cBtn_fix {
+	float: right;
+	background: url(../Images/cBtnVoteBox.png) no-repeat center top;
+	border: none;
+	width: 71px;
+	padding: 3px 0 22px;
+	cursor: pointer;
+}
+.cDivMask .cTbx_long {
+	width: 285px;
+}
+.cDivMask .cDivCloseButton {
+	width: 32px;
+	height: 32px;
+	background: url(../Images/1334754238_fileclose.png) no-repeat center top;
+	float: right;
+	margin: -10px -12px 0 0;
+	cursor: pointer;
+}
+/* --------------------*/
+.cDivTellAFriend,.cDivPrint,.cDivTime{
+	float: right;
+}
+.cDivTellAFriend,.cDivPrint{
+	margin: 5px 2px 0 3px;
+}
+.cDivTime{
+	margin-right: 10px;
+}
+.cDivTellAFriend img, .cDivPrint img{
+	cursor:pointer;
+	margin:0 2px;
+}
+/*--------- Whois --------*/
+.cWhois-box {
+	text-align: center;
+	max-width:468px;
+	margin:0 auto 10px;
+}
+.cWhoisResult{
+	width:508px;
+}
+.cWhois-box td {
+	text-align: right;
+}
+.cWhois-box table {
+	display: inline-block !important;
+}
+.cWhois-box select.cDdl_fit {
+	width: 70px;
+	border-style: solid;
+	/*border-radius: 3px;*/
+	padding: 1px;
+}
+.cWhois-box .cTbx {
+	height: 19px;
+	padding: 0 5px;
+	width: 183px;
+}
+.cWhois-box .cBtn_fix {
+	background: url(../Images/cBtn_fix_bg.png) no-repeat center top;
+	border: medium none;
+	cursor: pointer;
+	height: 0;
+	padding: 3px 0 22px;
+	width: 106px;
+	margin: -3px 0 0;
+}
+.cDivMaskWhois {
+	width: 363px;
+	background: url(../Images/cDivMaskWhoisBg.png) no-repeat left top;
+	z-index: 1000;
+	text-align: left;
+	height: 157px;
+	margin: 5px;
+	padding: 3px;
+}
+.cDivSuffixTitle1 {
+	width: 295px;
+	margin: 13px 10px 0 0;
+	float: right;
+	color: #000;
+	font: bold 12px tahoma;
+}
+.cOverflow {
+	overflow: auto;
+}
+.cDivMaskWhois .cDivPadding {
+	height: 100px;
+	width: 320px;
+	padding: 0 0 0 15px;
+	margin: 10px 0 0 8px;
+	display: inline-block;
+}
+.cWhois-box .cTag td {
+	padding: 10px;
+	background: url(../Images/bgWhois001Domain.png) no-repeat center top;
+	width: 62px;
+	height: 56px;
+}
+.cTrrSingleSelect {
+	display: inline-block;
+	margin-bottom: 10px;
+}
+.cDivChkBoxMulti {
+	margin-top: 7px;
+	background: url(../Images/bgwhoisT4-2-4.gif) repeat-x left bottom #ececec;
+	display: inline-block;
+	min-width:160px;
+}
+.cDivChParentMulti {
+	width: 100%;
+	border: 1px solid #666;
+	/*border-radius: 5px;*/
+	font: 11px tahoma;
+	background: url(../Images/bgwhoisT4-3-4.gif) no-repeat center bottom;
+	display: inline-block;
+}
+.cDomainMulti {
+	padding: 10px;
+}
+.cDomain{
+	font-weight:bold;
+}
+.cDomainMulti .cTitleMulti {
+	padding-bottom: 10px;
+	font-weight: bold;
+}
+.cDomainWhois01 {
+	background: url(../Images/bgwhoisT11.png) no-repeat left top;
+	padding-left: 10px;
+	width: 46px;
+	float: left;
+	margin: 0 4px 15px;
+}
+.cDomainWhois02 {
+	background: url(../Images/bgwhoisT22.png) no-repeat right top;
+	padding-right: 10px;
+}
+.cDomainWhois03 {
+	background: url(../Images/bgwhoisT-TopShadow.png) repeat-x left top;
+}
+.cDomainWhois04 {
+	background: url(../Images/bgwhoisT-BtShadow.png) repeat-x left bottom;
+}
+.cDomainWhois05 {
+	background: url(../Images/bgwhoisT44.gif) repeat-x left 2px;
+}
+.cDomainWhois06 {
+	/*background:url(../Images/bgwhoisT55.gif) no-repeat center 2px;*/
+	height: 52px;
+	text-align: center;
+}
+.cDomainWhois06 input {
+	margin-top: 9px;
+}
+.cDomainWhois06 label {
+	margin-top: 9px;
+	display: block;
+	/*text-shadow: 1px 1px 0 #fff;*/
+}
+.cDivWhoisMainU {
+	padding: 10px;
+	margin: 10px auto;
+	/*border-radius: 5px;*/
+	border: 1px solid #999;
+	background: url(../Images/bgwhoisT4-3-4.gif) no-repeat center bottom #ECECEC;
+	max-width: 390px;
+}
+.cDivWhoisMainU span {
+	background: url(../Images/exclamation-octagon-frame.png) no-repeat left center;
+	padding-left: 20px;
+	color: #000;
+	direction: ltr;
+}
+.cDivWhoisMainU a {
+	background: url(../Images/cDivWhoisMainU01.png) no-repeat center top;
+}
+.cDivWhoisMainS {
+	padding: 10px;
+	margin: 10px auto;
+	/*border-radius: 5px;*/
+	border: 1px solid #23a919;
+	background: url(../Images/bgwhoisT4-3-4.gif) no-repeat center bottom #ECECEC;
+	max-width: 390px;
+}
+.cDivWhoisMainS span {
+	background: url(../Images/tick-button.png) no-repeat left center;
+	padding-left: 20px;
+	color: #000;
+	direction: ltr;
+}
+.cDivWhoisMainS a {
+	background: url(../Images/cDivWhoisMainS01.png) no-repeat center top;
+}
+.cDivWhoisMainS a, .cDivWhoisMainF a, .cDivWhoisMainU a {
+	float: right;
+	width: 63px;
+	height: 46px;
+	text-align: center;
+	font: bold 11px tahoma;
+	color: #fff;
+	padding-top: 7px;
+	margin-top: -10px;
+}
+.cDivWhoisMainU a {
+	color: #555;
+}
+.cDivWhoisMainS .cDivSub, .cDivWhoisMainF .cDivSub, .cDivWhoisMainU .cDivSub {
+	display: inline-block;
+	width: 100%;
+}
+.cDivWhoisMainS a:hover, .cDivWhoisMainF a:hover, .cDivWhoisMainU a:hover {
+	color: #000;
+}
+.cDivWhoisMainF {
+	padding: 10px;
+	margin: 10px auto;
+	/*border-radius: 5px;*/
+	border: 1px solid #a91919;
+	background: url(../Images/bgwhoisT4-3-4.gif) no-repeat center bottom #ECECEC;
+	max-width: 390px;
+}
+.cDivWhoisMainF span {
+	background: url(../Images/cross-button.png) no-repeat left center;
+	padding-left: 20px;
+	color: #000;
+	direction: ltr;
+}
+.cDivWhoisMainF a {
+	background: url(../Images/cDivWhoisMainF01.png) no-repeat center top;
+}
+.cDivWhoisMainS p, .cDivWhoisMainF p, .cDivWhoisMainS span, .cDivWhoisMainF span, .cDivWhoisMainU p, .cDivWhoisMainU span {
+	float: left;
+}
+.cDivddlSingle, .cDivTxtWhoisSearch, .cDivBtnSearch{
+	float: left;
+}
+.cDivWhoisMainI{
+	max-width: 390px;
+	padding: 10px;
+	margin: 10px auto;
+	/*border-radius: 5px;*/
+	border: 1px solid #c00;
+	background: url(../Images/bgwhoisT4-3-4.gif) no-repeat center bottom #ECECEC;
+	color:#c00;
+}
+.cDivddlSingle {
+	margin: 0 5px;
+}
+.cDivWhoisMainS p, .cDivWhoisMainF p, .cDivWhoisMainU p {
+	width: 80%;
+	color: #333;
+}
+.cDivSingleSelect .cTitle {
+	width: 100%;
+}
+.cDivSingleSelect .cTitle {
+	text-align: right;
+	margin-bottom: 8px;
+}
+.cDivSingleSelect {
+	width: 385px;
+	margin: 0 auto;
+	display:inline-block;
+}
+.cDivControlsMulti {
+	margin: 0 auto 7px;
+	max-width: 307px;
+	display: inline-block;
+}
+.cDivTxtWhoisSearchMulti {
+	width: 200px;
+}
+.cDivTxtWhoisSearchMulti, .cDivBtnSearchMulti {
+	float: left;
+	text-align: left;
+}
+.cDivBtnSearchMulti {
+	/*margin-top: 24px;*/
+}
+.cDivTxtWhoisSearchMulti .cTitle {
+	font-weight: normal;
+	margin-bottom: 3px;
+}
+.cDivShowWhois{
+	overflow:auto;
+	margin-left:-20px;
+	width:400px;
+	direction:rtl;
+}
+.cDivShowWhois .cDivCloseButton {
+	width: 15px;
+	height: 15px;
+	background: url(../Images/message-close.png) no-repeat center 4px #000;
+	margin: 10px 20px 0 0;
+	cursor: pointer;
+	z-index: 1001;
+	position: relative;
+	/*border-radius:4px;*/
+}
+.cDivShowWhois .cDivCloseButton:hover {
+	background: url(../Images/message-close.png) no-repeat center 4px #c80808;
+}
+.cWhois-box .CWhoisPhrase{
+	font:10px tahoma;
+	color:#aaa;
+	display:block;
+	text-align:left;
+}
+/*--------------------------------------------- Site Statistics */
+.divStats {
+	margin-top: 45px;
+}
+.stats-bg {
+	background: #e3e3e3 url(../Images/statistics_bg.gif) repeat-x 0 0;
+}
+.stats-l {
+	background: url(../Images/statistics_l.gif) repeat-y 0 0;
+}
+.stats-r {
+	background: url(../Images/statistics_r.gif) repeat-y right 0;
+}
+.stats-t {
+	background: url(../Images/statistics_t.gif) repeat-x 0 0;
+}
+.stats-b {
+	background: url(../Images/statistics_b.gif) repeat-x 0 bottom;
+}
+.stats-tl {
+	background: url(../Images/statistics_tl.gif) no-repeat 0 0;
+}
+.stats-tr {
+	background: url(../Images/statistics_tr.gif) no-repeat right 0;
+}
+.stats-bl {
+	background: url(../Images/statistics_bl.gif) no-repeat 0 bottom;
+}
+.stats-br {
+	background: url(../Images/statistics_br.gif) no-repeat right bottom;
+}
+.stats-icon {
+	background: url(../Images/statistics_top.png) no-repeat center top;
+	height: 83px;
+	top: -43px;
+	position: relative;
+	margin-bottom: -43px;
+}
+.stats-content {
+	padding: 13px;
+	font-size: 11px;
+}
+.stats-shadow {
+	background: url(../Images/statistics_shadow_l.png) no-repeat 0 0;
+	padding-left: 80px;
+}
+.stats-shadow-r {
+	background: url(../Images/statistics_shadow_r.png) no-repeat right 0;
+	padding-right: 80px;
+}
+.stats-shadow-bg {
+	background: url(../Images/statistics_shadow_bg.png) repeat-x 0 0;
+	height: 13px;
+}
+.cDivSiteStatistics .cLabel,.cDivSiteStatistics .cValue{
+	text-align: left;
+	padding: 2px 0 0;
+}
+.cDivSiteStatistics .cValue{
+	width: 13%;
+	text-align: right;
+}
+/*--- End Site Statistics  */
+/*---------------------------------------------  PAGING  */
+.cDivPager{
+	width:95%;
+	margin: 10px auto;
+	text-align:center;
+	background:url(../Images/paging.png) top center no-repeat;
+	padding-top:15px;
+}
+.cDivPager .spnPaging{
+   background: url(../Images/pagingBG.png) no-repeat scroll left top transparent;
+    color: #075DBC;
+    display: inline-block;
+    height: 17px;
+    margin: 1px;
+    padding: 4px 0;
+    width: 25px;
+}
+.cDivPager .spnPaging:hover{
+	 background: url(../Images/pagingBG.png) no-repeat scroll left bottom transparent;
+    color: #fafafa;
+	cursor:pointer;
+    display: inline-block;
+    height: 17px;
+    margin: 1px;
+    padding: 4px 0;
+    width: 25px;
+}
+.spnPagingFirst,.spnPagingLast{
+	display:inline-block;
+	background:url(../Images/pagingBG.png) no-repeat scroll right top transparent;
+	color:#075dbc;
+    height: 17px;
+    margin: 1px;
+    padding: 4px 0;
+	width:52px;
+	text-align:center
+}
+.spnPagingFirst:hover,.spnPagingLast:hover{
+	display:inline-block;
+    height: 17px;
+    margin: 1px;
+    padding: 4px 0;
+	background:url(../Images/pagingBG.png) no-repeat scroll right bottom transparent;
+	color:#fafafa;
+	cursor:pointer;
+		width:52px;
+	text-align:center;
+}
+.cDivPager .spnPagingSelected{
+	background: url(../Images/pagingBG.png) no-repeat scroll left bottom transparent;
+    color: #fafafa;
+    display: inline-block;
+    height: 17px;
+    margin: 1px;
+    padding: 4px 0;
+    width: 25px;
+}
+/*---------Search---------*/
+.cDivUlLi {
+	background: url(../Images/bg-block4.gif) repeat-x scroll left top #e5e5e5;
+	padding: 15px;
+	clear: both;
+	/*border-radius: 5px;*/
+}
+.cDivUlLi ul {
+	list-style-type: none;
+}
+.cDivUlLi ul li {
+	list-style-type: none;
+	color: #009933;
+	margin-bottom: 7px;
+	font: 11px tahoma;
+}
+.cDivUlLi ul li a {
+	color: #1122CC;
+	font: bold 11px tahoma;
+}
+.ddlImage{
+	background-color:#fff !important;
+	font:11px tahoma;
+	float:left;
+}
+/* --- info */
+.cDivSearchResult{
+	padding: 7px 10px 22px;
+}
+.cDivResultTitle{
+	float: left;
+}
+.cDivAboutFound{
+	color: #777777;
+	float: right;
+	font-size: 11px;
+}
+.cDivFoundAbout{
+	float: left;
+}
+.cDivSearchTime{
+	float: right;
+}
+/*---------Time---------*/
+.cDivTime{
+	background: url(../Images/time_ltr.jpg) no-repeat 0 0;
+	color: #597f9c;
+	height: 27px;
+	width: 160px;
+}
+.cDivShowTime{
+	display: block;
+	font: 11px tahoma;
+	padding: 7px 0 0 28px;
+}
+.cDivTimeAjax{
+	text-align: center;
+}
+/*  ----------  LOGIN  ---------   */
+
+.cdivMembersSignin .cTbx {
+	width: 11em;
+}
+.cdivMembersSignin .cLabel {
+	font: normal 11px tahoma;
+	text-align: left;
+}
+.cdivMembersSignin .cValue label {
+	font: normal 9px tahoma;
+	text-align: left;
+}
+.cdivMembersSignin .cValue input {
+	margin-right: 6px;
+}
+.cdivMembersSignin .cTdBtnSignIn {
+	text-align: center;
+}
+.cdivMembersSignin .cTdBtnSignIn input {
+	background: url(../Images/loginBts500.png) no-repeat center top;
+	width: 92px;
+	padding: 1px 0 7px;
+	border: none;
+	margin-top: 10px;
+	cursor: pointer;
+}
+.cTdForgotPassword a {
+	color: #C00;
+	font-size: 10.5px;
+}
+.cTdForgotPassword a:hover {
+	color: #F00;
+}
+.cDivPadding {
+	padding: 30px;
+}
+.cLanguage {
+	width:120px;
+	margin:0 auto;
+}
+.cLanguage select{
+	border:1px solid #000;
+	padding:1px;
+	font:11px tahoma;
+	float:left;
+}
+/* --------------------------------------- Slider */
+.bx-wrapper{
+	clear:both;
+}
+.slidBox1
+{
+    width: 148px;
+    height: 66px;
+    margin: 0 auto 15px;
+	overflow:hidden;
+}
+.slidBox1 .leftBox{
+    width: 70px;
+    height: 42px;
+    margin: 24px 2px 0;
+    float: left;
+}
+.slidBox1 .leftBox a{
+	display: block;
+    height: 42px;
+    background: url(../Images/slidePrevious01.png) no-repeat left top;
+}
+.slidBox1 .leftBox a:hover
+{
+    background: url(../Images/slidePrevious01.png) no-repeat left -42px;
+}
+.slidBox1 .centerBox{
+    width: 66px;
+    height: 66px;
+    float: left;
+    position: relative;
+    top: 5px;
+    left: -34px;
+    z-index: 1;
+}
+.slidBox1 .centerBox a{
+	display: block;
+    height: 66px;
+    font-size: 0.000001em;
+}
+.play{
+    background: url(../Images/slidePrevious03.png) no-repeat center top;
+}
+.play a:hover {
+    background: url(../Images/slidePrevious03.png) no-repeat center -66px;
+}
+.pause{
+    background: url(../Images/slidePrevious04.png) no-repeat center top;
+}
+.pause a:hover {
+    background: url(../Images/slidePrevious04.png) no-repeat center -66px;
+}
+.slidBox1 .rightBox{
+    width: 70px;
+    height: 42px;
+    margin: 5px 0 0 61px;
+    float: left;
+    position: relative;
+    top: -47px;
+    right: -11px;
+}
+.slidBox1 .rightBox a{
+	display: block;
+    height: 42px;
+    background: url(../Images/slidePrevious02.png) no-repeat right top;
+}
+.slidBox1 .rightBox a:hover
+{
+    background: url(../Images/slidePrevious02.png) no-repeat right -42px;
+}
+.slideNextOver,.slidePrevOver{
+	width: 51px;
+	height: 28px;
+}
+.slideNextOver{
+    background: url(../Images/slideNext_over.png) no-repeat right top;
+}
+.slidePrevOver{
+    background: url(../Images/slidePrevious_over.png) no-repeat left top;
+}
+.cPreload,.cPreloadImage{
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.cPreload{
+	background: url(../Images/slideNext_over.png) no-repeat;
+}
+.cPreloadImage{
+	background: url(../Images/slidePrevious_over.png) no-repeat;
+}
+.Mapview-red ul {
+    margin:  2px 38px;
+}
+/* 8888888888888888888 Add To Cart Button */
+.cDivAddToCart {
+	text-align: right;
+	padding-right: 8px;
+}
+.cAddToCart {
+	background: url(../Images/shopping_add2cart.png) no-repeat;
+	width: 144px;
+	padding: 6px 0 14px 58px;
+	border: none;
+	cursor: pointer;
+	text-align: left;
+	font: normal 11px Tahoma;
+	color: #333;
+}
+.cAddToCart:hover {
+	background: url(../Images/shopping_add2cart_over.png) no-repeat;
+	color: #000;
+}
+.cAddToCart:active {
+	position: relative;
+	top: 1px;
+}
+/*==============*/
+.cCart .cCartIcon{
+	background:url(../Images/cCartIcon0028EN.png) no-repeat center top;
+	width:180px;
+	height:64px;
+	margin:0 auto;
+	cursor:pointer;
+}
+.cDivCartDetail .cCart{
+	max-width:615px;
+	margin:0 auto;
+}
+.cDivCartDetail .cDivCloseButton{
+	width:32px;
+	height:32px;
+	background:url(../Images/1334754238_fileclose.png) no-repeat center top;
+	float:right;
+	margin:-10px -12px 0 0;
+	cursor:pointer;
+}
+.cDivCartDetail{
+	position:fixed;
+	width:700px;
+	background:url(../Images/ShopingBgWPage001.gif) repeat-x left bottom #fff;
+	border:2px solid #555;
+	z-index:1000;
+}
+.cImageGallery img{
+	max-width:100%;
+}
+.cImageGallery{
+	max-width:100%;
+}
+/* ------------- tbl */
+.cTblShoppingParent {
+	width: 100%;
+}
+.cTdFirstParent {
+	width: 6px;
+	background: url(../Images/shopping_trLeft.png) no-repeat 0 0;
+}
+.cTdLastParent {
+	width: 6px;
+	background: url(../Images/shopping_trRight.png) no-repeat right 0;
+}
+.cTdCenterParent {
+	background: url(../Images/shopping_trBg.gif) repeat-x;
+}
+.cTblShopping {
+	width: 100%;
+}
+.cTrTitle {
+	height: 29px;
+	font-size:10px;
+}
+.cTrTitle td {
+	background: url(../Images/shopping_trSep.gif) no-repeat left center;
+}
+.cTrTitle td.cTdFirstTitle, .cTrTitle td.cTdCart {
+	border-right: none !important;
+	background: none !important;
+}
+.cShippingRow, .cDivLocate {
+	background-color: #e7e7e7;
+}
+.cShippingLocation {
+	background-color: #ccc;
+}
+.cShippingRow td, .cShippingLocation td, .cTrTitle td {
+	text-align: center;
+}
+.cShippingRow td, .cShippingLocation td{
+	padding: 3px 6px;
+	border-bottom: 1px solid #888;
+	border-left: 1px solid #888;
+}
+.cDivLocate{
+	padding: 3px 6px;
+	border-bottom: 1px solid #888;
+	border-left: 1px solid #888;
+	border-right: 1px solid #888;
+}
+.cDivLocate, .cShippingLocation select {
+	color: #390;
+}
+.cTrLast td {
+	border-bottom: 1px #ece6dc solid;
+}
+/* --- */
+.cDivTotalAmount {
+	text-align: left;
+	padding: 4px 16px;
+	font-weight: bold;
+}
+
+/* - */
+.cLocationLink {
+	cursor: pointer;
+}
+.cShippingLocation {
+	display: none;
+}
+.cCartImage {
+	max-width: 50px !important;
+	max-height: 50px !important;
+}
+* html .cCartImage {
+	width: 50px !important;
+	height: 50px !important;
+}
+.cDivContinue {
+	display:inline-block;
+	width:100%;
+	margin:10px 0;
+}
+.cDivContinue, .tdContinue {
+	text-align: left;
+	padding-left: 8px;
+}
+.cCartBottomText {
+	background:url(../Images/bgCartbtText.gif) repeat-y -1px top #fff;
+	padding:10px 10px 10px 20px;
+	margin:10px 0;
+	/*border-radius:5px;*/
+	border:1px solid #aaa;
+}
+/* ------------- Shopping Input */
+.cShoppingInput {
+	font: normal 11px Tahoma;
+	background: url(../Images/shopping_input.png) no-repeat;
+	width: 87px;
+	height: 34px;
+	padding: 0 0 5px 0;
+	text-align: center;
+	color: #333;
+	border: none;
+	cursor: pointer;
+}
+.cShoppingInput:hover {
+	background: url(../Images/shopping_input_over.png) no-repeat;
+	color: #000;
+}
+/* - */
+.cTdRemove, .cTdQty {
+	width: 40px;
+}
+.cRemoveButton {
+	cursor: pointer;
+}
+.cTbx_small {
+	width: 2em;
+}
+.cTitleAccepted, .cTitleDeleted {
+	text-align: center;
+	font: bold 11px tahoma;
+	padding: 5px;
+}
+.cTitleDeleted span {
+}
+/* ------------- Shopping Login */
+.cShoppingLogin {
+	margin: 6px 0;
+}
+.cShoppingLogin_t {
+	background: url(../Images/shopping_login.png) no-repeat;
+	height: 222px;
+	width: 289px;
+	margin: 0 auto;
+}
+.cShoppingLogin_r {
+	margin: 0 auto;
+	width: 260px;
+}
+.cTblLogin {
+	margin: 0 auto;
+	padding-top: 43px;
+}
+.cTdRemember {
+	width: 210px;
+	padding-top: 7px;
+}
+.cTdRemember input {
+	margin: 4px 0 0 2px;
+}
+.cTdLoginContinue, .cTxtEnd {
+	text-align: center;
+	padding-top: 7px;
+}
+.cTdLabel {
+	vertical-align: top;
+}
+/* - */
+.cCaption h6 {
+	font-size: 12px;
+	margin-top: 8px;
+	padding:10px 10px 0;
+}
+.cCorpus {
+	padding:10px 0;
+}
+.cCorpus ul {
+	margin: 4px 17px 8px;
+	list-style-type:none;
+}
+.cCorpus ul li {
+	background:url(../Images/1334645160_price-tag.png) no-repeat right top;
+	text-indent:23px;
+	margin-bottom:10px;
+}
+.cTblAddress {
+	border-collapse: collapse;
+	padding: 0;
+	width: 100%;
+}
+.cTblAddress .cTbx_Address {
+	width:265px;
+}
+.cTblAddress .cShoppingInput {
+	float:left;
+}
+.cTblAddress .cLabel {
+	text-align: left;
+	font-weight: bold;
+	width: 40%;
+}
+.cTblAddress td {
+	padding: 4px 2px;
+	font-size:11px;
+}
+.cTblAddress .cValue select {
+	font: 11px tahoma;
+	margin: 0;
+	padding: 0;
+	width: 15em;
+	color: #373737;
+}
+.cTbx_Address {
+	background: url(../Images/backgrounds-sprite.gif) repeat-x scroll left top #FFFFFF;
+	font: 11px tahoma;
+	height: 18px;
+	width: 30em;
+	border: 1px solid #afafaf;
+}
+.cCredit {
+	display:inline-block;
+	width:100%;
+	margin:10px 0;
+}
+.cSpnCatalogIcon{
+	width:16px;
+	height:16px;
+	background:url(../Images/catalog_tr.png) no-repeat center center;
+	display:inline-block;
+}
+/* --- */
+.cDivProduct .cTdDetails a {
+	background:url(../Images/shopingbgBt0021.png) no-repeat center top;
+	width:73px;
+	display:inline-block;
+	height:20px;
+	color:#000;
+	margin-top:5px;
+}
+.cDivProduct .cTdDetails a:hover {
+	color:#fff;
+}
+.cDataPartParent .cData_area {
+	padding:20px;
+	margin-bottom:10px;
+	border:1px solid #999;
+	background:url(../Images/ShopingBgWPage001.gif) repeat-x left bottom #fff;
+}
+.cDataPartParent .cData_area span {
+	background:url(../Images/1334645973_alert.png) no-repeat right top;
+	padding:0 33px 0 10px;
+	display:block;
+	line-height:18px;
+	text-align:justify !important;
+}
+.cPeymentWay .cComment {
+	width:100%;
+	background-color:#f5f5f5;
+}
+.cPeymentWay .cTitle {
+	background:url(../Images/1334643828_credit_cards.png) no-repeat right top;
+	height:27px;
+	padding-right:30px;
+}
+.cPeymentWay .cData {
+	padding-right:30px;
+}
+.cPeymentWay .cData label {
+	padding:0 5px;
+	vertical-align:bottom;
+}
+.cPeymentWay {
+	background-color:#fff;
+	border:1px solid #999;
+	padding:20px;
+}
+.cDataPartParent .cDivTotalAmount {
+	background:url(../Images/cDivVote001.png) no-repeat left top;
+	padding:0 0 0 44px !important;
+	margin-bottom:10px;
+}
+.cDataPartParent .cDivTotalAmount1 {
+	background:url(../Images/cDivVote003.png) no-repeat right top;
+	padding-right:44px;
+}
+.cDataPartParent .cDivTotalAmount2 {
+	background:url(../Images/cDivVote002.png) repeat-x right top;
+	height:23px;
+	padding-top:3.2px;
+	color:#690;
+}
+/* 8888888888888888888 Add To Cart Button */

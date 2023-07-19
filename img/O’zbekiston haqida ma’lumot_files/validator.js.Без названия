@@ -1,0 +1,455 @@
+﻿function ValidateForm(mainCtl) {
+    var status = true, listControls = '';
+    $('#' + mainCtl + ' input:text').each(
+            function () {
+                var classList = $(this).attr('class');
+                var txtControl = $(this).attr('id');
+                var currentID = $(this).attr('id');
+
+                var iStatus = true;
+
+                if ($(this).attr('id').split('_').length > 1) {
+                    var lastIndex = currentID.split('_').length - 1;
+                    currentID = currentID.split('_')[lastIndex];
+
+                }
+
+                if (classList.indexOf('rfv') != -1 || classList.indexOf('rgv') != -1) {
+                    //Required field validator 
+                    if (classList.indexOf('rfv') != -1) {
+                        var rfvControl = 'rfv' + currentID;
+                        $('#' + mainCtl).find('span').each(function () {
+                            var spnID = $.trim($(this).attr('id'));
+
+                            if (spnID != '') {
+                                if ($(this).attr('id').indexOf(rfvControl) != -1) {
+
+                                    if ($('#' + txtControl).val() == '') {
+                                        $(this).show();
+                                        $(this).parent().show();
+                                        iStatus = false;
+                                        status = false;
+                                        listControls += $('#' + txtControl).attr('id') + ';';
+
+                                    }
+                                    else {
+                                        iStatus = true;
+                                        $(this).hide();
+                                        $('#' + txtControl).removeClass('invalid');
+                                    }
+                                }
+                            }
+
+                        });
+                    }
+
+                    //Regular field Validator 
+                    if (classList.indexOf('rgv') != -1) {
+                        //alert(currentID);
+                        var rgvControl = 'rgv' + currentID;
+                        var regControl = 'reg' + currentID;
+                        var reg = '';
+                        var currentRgv = '';
+
+                        $('#' + mainCtl).find('span').each(function () {
+                            var spnID = $.trim($(this).attr('id'));
+
+                            if (spnID != '') {
+
+                                if ($(this).attr('id').indexOf(regControl) != -1) {
+                                    reg = $.trim($(this).html());
+
+                                }
+
+                                if ($(this).attr('id').indexOf(rgvControl) != -1) {
+                                    currentRgv = $(this).attr('id');
+
+                                    if (iStatus && $('#' + txtControl).val() != '') {
+                                        $('#' + mainCtl).find('span').each(function () {
+
+                                            spnID = $.trim($(this).attr('id'));
+
+                                            if (spnID != '') {
+                                                if ($(this).attr('id').indexOf(regControl) != -1) {
+                                                    reg = $.trim($(this).html());
+                                                }
+                                            }
+                                        });
+
+
+                                        $('#' + txtControl).filter(function () {
+                                            var txtVal = $('#' + txtControl).val();
+
+                                            if (txtVal.match(reg)) {
+
+                                                $('#' + currentRgv).hide();
+                                                listControls += $('#' + txtControl).attr('id') + ';';
+                                            }
+                                            else {
+
+                                                status = false;
+                                                $('#' + currentRgv).show();
+                                                $('#' + txtControl).removeClass('invalid');
+                                                listControls += $('#' + txtControl).attr('id') + ';';
+                                            }
+
+                                        });
+                                    }
+
+                                    else {
+                                        $('#' + currentRgv).hide();
+                                    }
+
+                                }
+                            }
+                        });
+                    }
+
+
+
+                }
+
+
+            });
+
+
+    $('#' + mainCtl + ' textarea').each(
+            function () {
+
+                var classList = $(this).attr('class');
+                var txtControl = $(this).attr('id');
+                var currentID = $(this).attr('id');
+                var iStatus = true;
+
+                if ($(this).attr('id').split('_').length > 1) {
+                    var lastIndex = currentID.split('_').length - 1;
+                    currentID = currentID.split('_')[lastIndex];
+
+                }
+
+                if (classList.indexOf('rfv') != -1 || classList.indexOf('rgv') != -1) {
+                    //Required field validator 
+                    if (classList.indexOf('rfv') != -1) {
+                        var rfvControl = 'rfv' + currentID;
+                        $('#' + mainCtl).find('span').each(function () {
+                            var spnID = $.trim($(this).attr('id'));
+
+                            if (spnID != '') {
+                                if ($(this).attr('id').indexOf(rfvControl) != -1) {
+                                    if ($('#' + txtControl).val() == '') {
+                                        $(this).show();
+                                        $(this).parent().show();
+                                        iStatus = false;
+                                        status = false;
+                                        listControls += $('#' + txtControl).attr('id') + ';';
+
+                                    }
+                                    else {
+                                        iStatus = true;
+                                        $(this).hide();
+                                        $('#' + txtControl).removeClass('invalid');
+                                    }
+                                }
+                            }
+                        });
+                    }
+
+
+                    //Regular field Validator 
+                    if (classList.indexOf('rgv') != -1) {
+
+                        var rgvControl = 'rgv' + currentID;
+                        var regControl = 'reg' + currentID;
+                        var reg = '';
+                        var currentRgv = '';
+
+                        $('#' + mainCtl).find('span').each(function () {
+
+                            var spnID = $.trim($(this).attr('id'));
+
+                            if (spnID != '') {
+                                if ($(this).attr('id').indexOf(regControl) != -1) {
+                                    reg = $.trim($(this).html());
+
+                                }
+
+                                if ($(this).attr('id').indexOf(rgvControl) != -1) {
+                                    currentRgv = $(this).attr('id');
+
+                                    if (iStatus && $('#' + txtControl).val() != '') {
+                                        spnID = $.trim($(this).attr('id'));
+
+                                        if (spnID != '') {
+                                            $('#' + mainCtl).find('span').each(function () {
+                                                spnID = $.trim($(this).attr('id'));
+
+                                                if (spnID != '') {
+
+                                                    if ($(this).attr('id').indexOf(regControl) != -1) {
+                                                        reg = $.trim($(this).html());
+                                                    }
+                                                }
+                                            });
+                                        }
+                                        $('#' + txtControl).filter(function () {
+                                            var txtVal = $('#' + txtControl).val();
+
+                                            if (txtVal.match(reg)) {
+
+                                                $('#' + currentRgv).hide();
+                                                listControls += $('#' + txtControl).attr('id') + ';';
+                                            }
+                                            else {
+
+                                                status = false;
+                                                $('#' + currentRgv).show();
+                                                $('#' + txtControl).removeClass('invalid');
+                                                listControls += $('#' + txtControl).attr('id') + ';';
+                                            }
+
+                                        });
+                                    }
+
+                                    else {
+                                        $('#' + currentRgv).hide();
+                                    }
+                                }
+                            }
+                        });
+                    }
+
+
+
+                }
+
+
+            });
+    if (!status) {
+
+        var items = listControls.split(';');
+
+        //$('#' + items[0]).focus();
+        for (var i = 0; i < items.length - 1; i++) {
+
+            $('#' + items[i]).addClass('invalid');
+        }
+
+    }
+
+
+    return status;
+}
+
+
+
+function ValidateControl(parent) {
+    var status = true;
+    var iStatusTxt = true;
+    var iStatusMulti = true;
+    var listControls = '';
+    var reg = '';
+
+    $('#' + parent + ' :input:text').each( function () {
+
+          var txtControl = $(this).attr('id');
+          var currentID = $(this).attr('id');
+
+          if ($(this).attr('id').split('_').length > 1) {
+              var lastIndex = currentID.split('_').length - 1;
+              currentID = currentID.split('_')[lastIndex];
+
+          }
+
+          var classList = $(this).attr('class');
+
+          if (classList.indexOf('rfv') != -1 || classList.indexOf('rgv') != -1) {
+              $(this).blur(function () {
+                  if (classList.indexOf('rfv') != -1) {
+                      var rfvControl = 'rfv' + currentID;
+                      //alert(rfvControl);
+                      $('#' + parent).find('span').each(function () {
+                          var spnID = $.trim($(this).attr('id'));
+                          if (spnID != '') {
+                              if ($(this).attr('id').indexOf(rfvControl) != -1) {
+                                  if ($('#' + txtControl).val() == '') {
+                                      $(this).show();
+                                      $(this).parent().show();
+                                      iStatusTxt = status = false;
+                                  }
+                                  else {
+
+                                      $(this).hide();
+                                  }
+                              }
+                          }
+                      });
+                  }
+                  //Regular field Validator 
+
+                  if (classList.indexOf('rgv') != -1) {
+
+                      var rgvControl = 'rgv' + currentID;
+                      var regControl = 'reg' + currentID;
+                      // alert(currentID);
+                      var currentRgv = '';
+                      $('#' + parent).find('span').each(function () {
+                          var spnID = $.trim($(this).attr('id'));
+                          if (spnID != '') {
+
+                              if ($(this).attr('id').indexOf(rgvControl) != -1) {
+                                  currentRgv = $(this).attr('id');
+                              }
+                              if ($(this).attr('id').indexOf(regControl) != -1) {
+                                  reg = $.trim($(this).html());
+                              }
+                              if (iStatusTxt && $('#' + txtControl).val() != '') {
+                                  var txtVal = $('#' + txtControl).val();
+                                  // alert('txtVal  ' + txtVal);
+                                  // alert('reg ' + reg);
+                                  $('#' + txtControl).filter(function () {
+                                      if (txtVal.match(reg)) {
+                                          // alert('if');
+                                          $('#' + currentRgv).hide();
+                                          $('#' + txtControl).removeClass('invalid');
+
+                                      }
+                                      else {
+                                          //  alert('else');
+                                          status = false;
+                                          $('#' + currentRgv).show();
+                                      }
+
+                                  });
+                              }
+                              else {
+
+                                  $('#' + currentRgv).hide();
+                              }
+                          }
+                      });
+                  }
+                  if (!status) {
+                      $('#' + txtControl).addClass('invalid');
+                      // $('#' + txtControl).focus();
+                  }
+                  else {
+                      $('#' + txtControl).removeClass('invalid');
+                  }
+
+              });
+
+
+          }
+      });
+
+    $('#' + parent + ' textarea').each(
+      function () {
+
+          var txtControl = $(this).attr('id');
+          var currentID = $(this).attr('id');
+
+          if ($(this).attr('id').split('_').length > 1) {
+              var lastIndex = currentID.split('_').length - 1;
+              currentID = currentID.split('_')[lastIndex];
+
+          }
+
+          var classList = $(this).attr('class');
+
+          if (classList.indexOf('rfv') != -1 || classList.indexOf('rgv') != -1) {
+              $(this).blur(function () {
+
+                  //Required field validator 
+                  if (classList.indexOf('rfv') != -1) {
+
+                      var rfvControl = 'rfv' + currentID;
+                      $('#' + parent).find('span').each(function () {
+                          var spnID = $.trim($(this).attr('id'));
+
+                          if (spnID != '') {
+                              if ($(this).attr('id').indexOf(rfvControl) != -1) {
+                                  if ($('#' + txtControl).val() == '') {
+                                      $(this).show();
+                                      $(this).parent().show();
+                                      iStatusMulti = status = false;
+                                  }
+                                  else {
+
+                                      $(this).hide();
+                                  }
+                              }
+
+                          }
+                      });
+                  }
+                  //Regular field Validator 
+                  if (classList.indexOf('rgv') != -1) {
+
+                      var rgvControl = 'rgv' + currentID;
+                      var regControl = 'reg' + currentID;
+
+                      var currentRgv = '';
+                      $('#' + parent).find('span').each(function () {
+                          var spnID = $.trim($(this).attr('id'));
+
+                          if (spnID != '') {
+
+                              if ($(this).attr('id').indexOf(regControl) != -1) {
+                                  reg = $.trim($(this).html());
+                              }
+
+                              if ($(this).attr('id').indexOf(rgvControl) != -1) {
+                                  currentRgv = $(this).attr('id');
+
+
+                                  if (iStatusMulti && $('#' + txtControl).val() != '') {
+                                      $('#' + parent).find('span').each(function () {
+                                          spnID = $.trim($(this).attr('id'));
+
+                                          if (spnID != '') {
+
+                                              if ($(this).attr('id').indexOf(regControl) != -1) {
+                                                  reg = $.trim($(this).html());
+                                              }
+                                          }
+                                      });
+                                      var txtVal = $('#' + txtControl).val();
+
+                                      $('#' + txtControl).filter(function () {
+                                          if (txtVal.match(reg)) {
+                                              $('#' + currentRgv).hide();
+                                              $('#' + txtControl).removeClass('invalid');
+
+                                          }
+                                          else {
+
+                                              status = false;
+                                              $('#' + currentRgv).show();
+                                          }
+
+                                      });
+                                  }
+
+                                  else {
+                                      $('#' + currentRgv).hide();
+                                  }
+                              }
+                          }
+                      });
+                  }
+                  if (!status) {
+                      $('#' + txtControl).addClass('invalid');
+                      //   $('#' + txtControl).focus();
+                  }
+                  else {
+                      $('#' + txtControl).removeClass('invalid');
+                  }
+
+              });
+
+
+          }
+      });
+
+    return status;
+}
